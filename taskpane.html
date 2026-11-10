@@ -105,7 +105,10 @@ button.primary{background:var(--signal);color:var(--signal-ink);border-color:var
 .copilot a.linkbtn{display:inline-block;font:600 15px/1 "Public Sans",system-ui,sans-serif;border-radius:4px;border:1px solid var(--line);background:var(--field);color:var(--ink);padding:10px 14px;text-decoration:none}
 .from-ai{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
 body.in-outlook .only-browser{display:none !important}
-body:not(.in-outlook) .only-outlook{display:none !important}
+body:not(.in-outlook):not(.in-outlook-copilot) .only-outlook{display:none !important}
+body.in-outlook-copilot #openCopilot{display:none !important}
+body.in-outlook-copilot #loadedMsg{display:none}
+body.in-outlook #loadedMsg{display:block}
 body.in-outlook .wrap{padding:12px 12px 32px}
 body.in-outlook header{margin-bottom:12px;padding-bottom:10px}
 body.in-outlook header p{display:none}
@@ -119,6 +122,7 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
 .install p{color:var(--muted);max-width:70ch}
 .fallback{margin-top:10px}
 .fallback a{color:var(--ink)}
+.ver{margin:18px 0 0;font-size:12px;color:var(--muted)}
 .help{margin-top:22px;color:var(--muted);font-size:14px}
 .help ol{padding-left:20px;margin:6px 0 0}
 </style>
@@ -151,7 +155,7 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
       </div>
       <div class="actions">
         <button class="primary" id="go">Write note</button>
-        <button id="askCopilot" type="button" title="Copies the email with instructions, then opens Copilot Chat">Ask Copilot</button>
+        <button id="askCopilot" type="button" title="Copies the email with instructions for Copilot in Outlook">Ask Copilot</button>
         <button id="reloadItem" type="button" class="only-outlook">Reload this email</button>
         <button class="filebtn only-browser" type="button">Open email file<input type="file" id="file" accept=".eml,.msg,message/rfc822,application/vnd.ms-outlook" aria-label="Open email file"></button>
         <button id="clear" type="button" title="Clear the email and results, ready for the next one (Esc)">Reset</button>
@@ -163,9 +167,8 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
         <div class="actions">
           <button class="primary" id="useCopilot" type="button">Use Copilot’s answer</button>
           <button id="copyPromptAgain" type="button">Copy the request again</button>
-          <a id="openCopilot" class="linkbtn only-browser" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener noreferrer">Open Copilot Chat in your browser</a>
         </div>
-        <p class="sub only-outlook fallback">No Copilot button on your toolbar? <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener noreferrer">Open Copilot in your browser instead</a>.</p>
+        <p class="sub fallback">No Copilot button on your toolbar? <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener noreferrer">Open Copilot in your browser instead</a>.</p>
       </div>
     </section>
 
@@ -188,13 +191,14 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
     <p>Download the add-in file, then in Outlook go to Get Add-ins, My add-ins, Custom add-ins, Add from file, and choose it. Your IT team can also give it to everyone from the Microsoft 365 admin centre.</p>
     <button class="primary" id="getManifest" type="button">Download the Outlook add-in file</button>
   </section>
+  <p class="ver" id="ver">Version 1.5</p>
   <div class="help">
     How to use it
     <ol>
       <li>Enter your initials and your company’s email domain once. They’re remembered on this computer.</li>
       <li>Drag the email out of Outlook onto your desktop or a folder, then drag that file onto the email box. The note is written straight away. You can also click “Open email file”, or paste the email and click “Write note”.</li>
       <li>Check the note. If it’s wrong, tap the right update type or edit the text.</li>
-      <li>For a tricky email, click “Ask Copilot”. It copies the email with instructions. In Outlook, click the Copilot button on the toolbar; elsewhere it opens Copilot Chat for you. Paste, press Enter, then copy Copilot’s answer back into the box and click “Use Copilot’s answer”.</li>
+      <li>For a tricky email, click “Ask Copilot”. It copies the email with instructions. Click the Copilot button on Outlook’s toolbar and paste. Paste, press Enter, then copy Copilot’s answer back into the box and click “Use Copilot’s answer”.</li>
       <li>Click the big navy copy button and paste into OrderWise. Click it again for the next action, then again for the date. The highlighted box shows what it will copy next.</li>
       <li>When you’re done, click “Reset” (or press Esc) to clear everything for the next email. Your initials and domain stay saved.</li>
     </ol>
@@ -897,17 +901,9 @@ async function askCopilot(){
   if (!$("initials").value.trim()){ st.textContent = "Add your initials at the top first."; st.classList.add("error"); $("initials").focus(); return; }
   const ok = await copyText(copilotPrompt());
   $("copilotBox").hidden = false;
-  const inOutlook = document.body.classList.contains("in-outlook");
-  if (!ok){
-    $("copilotMsg").textContent = "Couldn’t copy automatically. Click “Copy the request again”, then paste it into Copilot.";
-  } else if (inOutlook){
-    $("copilotMsg").textContent = "Copied. Click the Copilot button on Outlook’s toolbar, paste with Ctrl+V and press Enter. Then copy Copilot’s whole answer and paste it here.";
-  } else {
-    $("copilotMsg").textContent = "Copied. In Copilot Chat, paste with Ctrl+V and press Enter. Then copy Copilot’s whole answer and paste it below.";
-  }
-  if (!inOutlook){
-    try { const w = window.open(COPILOT_URL, "_blank"); if (w) w.opener = null; } catch(e){}
-  }
+  $("copilotMsg").textContent = ok
+    ? "Copied. In Outlook, click the Copilot button on the toolbar, paste with Ctrl+V and press Enter. Then copy Copilot’s whole answer and paste it here."
+    : "Couldn’t copy automatically. Click “Copy the request again”, then paste it into Copilot in Outlook.";
   $("copilotAnswer").focus();
 }
 function useCopilot(){
