@@ -191,7 +191,7 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
     <p>Download the add-in file, then in Outlook go to Get Add-ins, My add-ins, Custom add-ins, Add from file, and choose it. Your IT team can also give it to everyone from the Microsoft 365 admin centre.</p>
     <button class="primary" id="getManifest" type="button">Download the Outlook add-in file</button>
   </section>
-  <p class="ver" id="ver">Version 1.5</p>
+  <p class="ver" id="ver">Version 1.6</p>
   <div class="help">
     How to use it
     <ol>
@@ -883,17 +883,54 @@ ${email}
 """`;
 }
 function parseCopilot(text){
-  const clean = text.replace(/\r/g,"").replace(/```[a-z]*\n?/gi,"").replace(/\*\*/g,"");
-  const blocks = clean.split(/\n\s*-{3,}\s*\n?|\n(?=\s*PO\s*(?:number)?\s*[:\-]\s*\S)/i).map(b => b.trim()).filter(b => /NOTE\s*:/i.test(b));
-  return blocks.map(b => {
-    const po = ((b.match(/^\s*PO\s*(?:number)?\s*[:\-]\s*([A-Z0-9\-\/]+)/im) || [])[1] || "").replace(/^PO/i,"");
-    const noteM = b.match(/NOTE\s*:\s*\n?([\s\S]*?)(?=\n\s*NEXT ACTION\s*(?:BY)?\s*:|$)/i);
-    const note = noteM ? noteM[1].split("\n").map(l => l.replace(/^\s*[-•]\s*/,"").trimEnd()).filter(l => l.trim()).join("\n").trim() : "";
-    const na = ((b.match(/^\s*NEXT ACTION\s*:\s*(.+)$/im) || [])[1] || "").trim().toUpperCase();
-    const nd = ((b.match(/^\s*NEXT ACTION BY\s*:\s*(.+)$/im) || [])[1] || "").trim();
-    const chk = ((b.match(/^\s*CHECK\s*:\s*(.+)$/im) || [])[1] || "").trim();
-    return {po, note, na, nd: (nd.match(/\d{1,2}\/\d{1,2}\/\d{2,4}/) || [nd])[0], chk: /^none\.?$/i.test(chk) ? "" : chk};
-  }).filter(x => x.note);
+  const clean = text.replace(/\r/g,"").replace(/```[a-z]*\n?/gi,"").replace(/\*\*|__/g,"").replace(/[ \t]+/g," ");
+  // find every label, wherever it sits (answers can arrive on one line)
+  const labelRe = /(?:^|\s|\n)(PO(?:\s*(?:number|no\.?))?|NOTE|NEXT ACTION BY|NEXT ACTION DATE|NEXT ACTION|CHECK)\s*[:\-–]\s*/gi;
+  const marks = [];
+  let m;
+  while ((m = labelRe.exec(clean))){
+    const label = m[1].toUpperCase().replace(/\s+/g," ").replace(/^PO.*/,"PO").replace("NEXT ACTION DATE","NEXT ACTION BY");
+    marks.push({label, start: m.index, end: labelRe.lastIndex});
+  }
+  const blocks = [];
+  let cur = null;
+  marks.forEach((mk, i) => {
+    const val = clean.slice(mk.end, i+1 < marks.length ? marks[i+1].start : clean.length).replace(/\s*-{3,}\s*$/,"").trim();
+    if (mk.label === "PO" || !cur || (mk.label in cur)){ cur = {}; blocks.push(cur); }
+    cur[mk.label] = val;
+  });
+  return blocks.filter(b => b.NOTE).map(b => {
+    const poRaw = (b.PO || "").trim();
+    const poNum = (poRaw.match(/\b(?:PO\s*)?([A-Z]{0,3}\d{3,})\b/i) || [])[1] || "";
+    let note = b.NOTE.trim();
+    // put tracking lines and the summary line back on their own lines when the answer came as one line
+    if (!/\n/.test(note)){
+      note = note
+        .replace(/\s+(?=(?:UPS|DHL|DPD|FedEx|TNT|Evri|Yodel|Royal Mail|Parcelforce|APC|DB Schenker|TLP|Palletways|AWB|Tracking)\s*:\s*[A-Z0-9])/g, "\n")
+        .replace(/\s+(?=(?:[A-Z][a-zà-ÿ'’\-]+|Supplier) said\s*:|We wrote\s*:)/g, "\n");
+    }
+    note = note.split("\n").map(l => l.replace(/^\s*[-•]\s*/,"").trim()).filter(Boolean).join("\n");
+    const na = (b["NEXT ACTION"] || "").replace(/[.\s]+$/,"").trim().toUpperCase();
+    const ndRaw = b["NEXT ACTION BY"] || "";
+    const nd = (ndRaw.match(/\d{1,2}\/\d{1,2}\/\d{2,4}/) || [ndRaw.trim()])[0];
+    const chk = (b.CHECK || "").trim();
+    return {po: poNum, note, na, nd, chk: /^(none|n\/a|nothing)\.?$/i.test(chk) ? "" : chk};
+  });
+}
+function pastDateFlags(text){
+  const out = [], today = startOfDay(new Date());
+  let m; const wk = /\bweek\s*(\d{1,2})\s*[\/\-]\s*(\d{4})\b/gi;
+  while ((m = wk.exec(text))){
+    const y = +m[2], n = +m[1];
+    const d = new Date(y, 0, 4 + (n - 1) * 7);
+    if (d < today && (today - d) > 7 * 864e5) out.push("Week " + n + "/" + y + " is in the past. Check whether the supplier meant " + (y + 1) + ".");
+  }
+  const dt = /\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/g;
+  while ((m = dt.exec(text))){
+    const d = new Date(+m[3], +m[2]-1, +m[1]);
+    if (d < today && (today - d) > 30 * 864e5) out.push(m[0] + " is more than a month ago. Check the date.");
+  }
+  return out;
 }
 async function askCopilot(){
   const st = $("status"); st.classList.remove("error");
@@ -910,14 +947,14 @@ function useCopilot(){
   const st = $("status"); st.classList.remove("error");
   const parsed = parseCopilot($("copilotAnswer").value);
   if (!parsed.length){ st.textContent = "Couldn’t find a note in that answer. Copy Copilot’s whole reply, including the PO and NOTE lines."; st.classList.add("error"); return; }
-  if (!items.length) $("go").click();             // build the page from the rules first, for supplier, summary and copy buttons
+  if ($("email").value.trim()) $("go").click();   // rebuild from the rules for this email first, for supplier, summary and copy buttons
   const multi = parsed.length > 1;
   const byPo = {};
   items.forEach(i => { if (i.po) byPo[i.po] = i; });
   const result = parsed.map(p => {
     const base = byPo[p.po] || items.find(i => !i.po) || {};
     const type = classify(p.note, /\bwe wrote\b|chased|po sent/i.test(p.note));
-    return Object.assign({}, base, {po: p.po || base.po || "", type: base.type || type, flags: (base.flags || []).filter(f => !/^Couldn’t tell|^No tracking number found/.test(f)), scope: base.scope || "", trackings: base.trackings || [], used: base.used || 0, copilot: p});
+    return Object.assign({}, base, {po: p.po || base.po || "", type: base.type || type, flags: (base.flags || []).filter(f => !/^Couldn’t tell|^No tracking number found/.test(f) && !(p.po && /^No PO number found/.test(f))).concat(pastDateFlags(p.note)), scope: base.scope || "", trackings: base.trackings || [], used: base.used || 0, copilot: p});
   });
   items = result;
   render();
