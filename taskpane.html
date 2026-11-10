@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Una Health · Supplier note helper</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F3F7; --surface:#FFFFFF; --ink:#1A2948; --muted:#58637A;
+  --line:#CDD3DF; --signal:#1A2948; --signal-ink:#FFFFFF; --ok:#1F7A4D; --warn:#A33A1F;
+  --field:#F7F8FB; --focus:#3D6BD6; --chip:#E4E8F0;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1626; --surface:#18223A; --ink:#E8ECF4; --muted:#9BA6BD;
+    --line:#2E3B58; --signal:#C9D5EE; --signal-ink:#1A2948; --ok:#5BC48E; --warn:#F08A6C;
+    --field:#1F2A45; --focus:#8FB0FF; --chip:#26324F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1626; --surface:#18223A; --ink:#E8ECF4; --muted:#9BA6BD;
+    --line:#2E3B58; --signal:#C9D5EE; --signal-ink:#1A2948; --ok:#5BC48E; --warn:#F08A6C;
+    --field:#1F2A45; --focus:#8FB0FF; --chip:#26324F; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 48px}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:64px;height:64px;border-radius:15%;flex:none}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;border-bottom:3px solid var(--ink);padding-bottom:14px}
+h1{font-family:"Outfit","Segoe UI",system-ui,sans-serif;font-weight:600;font-size:clamp(28px,4vw,40px);line-height:1;margin:0}
+header p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.settings{display:flex;gap:12px;flex-wrap:wrap}
+.settings label{display:flex;flex-direction:column;font-size:13px;color:var(--muted);gap:4px}
+.settings #initials{width:110px}
+.settings #domain{width:170px}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:4px;padding:8px 10px;width:100%}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+h2{font-family:"Outfit","Segoe UI",system-ui,sans-serif;font-weight:600;font-size:21px;margin:0 0 10px}
+#email{min-height:380px;resize:vertical;font-size:14px}
+.actions{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+button{font:600 15px/1 "Public Sans",system-ui,sans-serif;border-radius:4px;border:1px solid var(--line);background:var(--field);color:var(--ink);padding:10px 14px;cursor:pointer}
+button.primary{background:var(--signal);color:var(--signal-ink);border-color:var(--signal);padding:12px 20px;font-size:16px}
+.status{color:var(--muted);font-size:14px}
+.status.error{color:var(--warn)}
+.empty{color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:28px 18px;text-align:center}
+.meta{font-size:14px;color:var(--muted);margin-bottom:12px}
+.meta b{color:var(--ink);font-weight:600}
+.po{border:1px solid var(--line);border-radius:6px;padding:14px;margin-bottom:14px;background:var(--surface)}
+.po-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.po-head h3{font-family:"Outfit","Segoe UI",system-ui,sans-serif;font-size:20px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{font:500 13px/1 "Public Sans",system-ui,sans-serif;padding:7px 10px;border-radius:999px;background:var(--chip);border:1px solid transparent}
+.chip[aria-pressed="true"]{background:var(--signal);color:var(--signal-ink);border-color:var(--signal)}
+.note{min-height:70px;font-family:"Microsoft Sans Serif",Tahoma,"Public Sans",sans-serif;font-size:14px}
+.fields{display:grid;grid-template-columns:1fr 150px;gap:10px;margin-top:10px}
+.fields label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.copies{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.copy{font-size:13px;padding:7px 10px}
+.copy.done{color:var(--ok);border-color:var(--ok)}
+.copies{align-items:center}
+.step{flex:1 1 auto;text-align:center}
+.step.finished{background:var(--chip);border-color:var(--ok);color:var(--ok)}
+.next-field{outline:2px solid var(--signal);outline-offset:1px}
+.said{display:block;font-size:13px;color:var(--muted);margin-top:6px;min-height:1.2em}
+.flag{margin-top:10px;padding:8px 10px;border-left:4px solid var(--warn);background:var(--field);font-size:14px}
+.drop{position:relative}
+.drop.over textarea{border:2px dashed var(--signal);background:var(--surface)}
+.drop .hint{color:var(--ink);position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:"Outfit","Segoe UI",system-ui,sans-serif;font-size:24px;font-weight:600;pointer-events:none;color:var(--ink)}
+.drop.over .hint{display:flex}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.sub{color:var(--muted);font-size:13px;margin:-4px 0 10px}
+.read{margin:-4px 0 14px;font-size:14px}
+.read summary{cursor:pointer;color:var(--muted)}
+.read .msg{border-left:3px solid var(--line);padding:6px 10px;margin-top:8px}
+.read .msg.used{border-left-color:var(--signal)}
+.read .msg-h{font-size:12px;color:var(--muted);margin-bottom:2px}
+.read .msg-b{white-space:pre-wrap;max-height:9em;overflow:auto}
+.flag.tip{border-left-color:var(--signal)}
+.out-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.out-head h2{margin:0}
+.summary{border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:6px;padding:12px 14px;margin-bottom:14px;background:var(--surface)}
+.summary-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.summary h3{font-family:"Outfit","Segoe UI",system-ui,sans-serif;font-size:18px;margin:0}
+.summary .facts{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.sum-msg{margin-top:6px}
+.sum-h{font-size:12px;color:var(--muted)}
+.sum-msg ul{margin:2px 0 0;padding-left:18px}
+.sum-msg li{margin:2px 0}
+.toggle{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 12px;cursor:pointer}
+.toggle input{width:auto;margin:0}
+.copilot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.copilot textarea{min-height:140px;font-size:14px}
+.copilot a{color:var(--ink);font-size:14px}
+.from-ai{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+body.in-outlook .only-browser{display:none !important}
+body:not(.in-outlook) .only-outlook{display:none !important}
+body.in-outlook .wrap{padding:12px 12px 32px}
+body.in-outlook header{margin-bottom:12px;padding-bottom:10px}
+body.in-outlook header p{display:none}
+body.in-outlook h1{font-size:24px}
+body.in-outlook .brand img{width:40px;height:40px}
+body.in-outlook .grid{grid-template-columns:1fr;gap:12px}
+body.in-outlook #email{min-height:110px}
+body.in-outlook .panel{padding:12px}
+body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
+.install{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+.install p{color:var(--muted);max-width:70ch}
+.help{margin-top:22px;color:var(--muted);font-size:14px}
+.help ol{padding-left:20px;margin:6px 0 0}
+</style>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Una Health">
+      <div>
+      <h1>Supplier note helper</h1>
+      <p>Paste a supplier email. It finds the PO number, carrier, tracking and dates, and writes a Contact Manager note. Nothing leaves this computer.</p>
+      </div>
+    </div>
+    <div class="settings">
+      <label>Your initials<input id="initials" maxlength="5" placeholder="e.g. AS" autocomplete="off"></label>
+      <label>Our email domain<input id="domain" placeholder="e.g. unahealth.co.uk" autocomplete="off"></label>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>Supplier email</h2>
+      <p class="sub only-browser">Drop a saved email (.eml or .msg) here, or paste the email text.</p>
+      <p class="sub only-outlook" id="loadedMsg">Reading the email you have open…</p>
+      <div class="drop" id="drop">
+        <textarea id="email" placeholder="Drag a saved email onto this box, or paste the email here. Including the From and Subject lines helps it find the supplier and PO."></textarea>
+        <div class="hint">Drop the email here</div>
+      </div>
+      <div class="actions">
+        <button class="primary" id="go">Write note</button>
+        <button id="askCopilot" type="button" title="Copies the email with instructions, then opens Copilot Chat">Ask Copilot</button>
+        <button id="reloadItem" type="button" class="only-outlook">Reload this email</button>
+        <button class="filebtn only-browser" type="button">Open email file<input type="file" id="file" accept=".eml,.msg,message/rfc822,application/vnd.ms-outlook" aria-label="Open email file"></button>
+        <button id="clear" type="button" title="Clear the email and results, ready for the next one (Esc)">Reset</button>
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+      </div>
+      <div class="copilot" id="copilotBox" hidden>
+        <p class="sub" id="copilotMsg">Copied. In Copilot Chat, paste with Ctrl+V and press Enter. Then copy Copilot’s whole answer and paste it below.</p>
+        <textarea id="copilotAnswer" placeholder="Paste Copilot’s answer here"></textarea>
+        <div class="actions">
+          <button class="primary" id="useCopilot" type="button">Use Copilot’s answer</button>
+          <button id="copyPromptAgain" type="button">Copy the request again</button>
+          <a id="openCopilot" href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">Open Copilot Chat</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="out-head"><h2>For OrderWise</h2><button id="reset2" type="button" class="copy" hidden>Reset for next email</button></div>
+      <div class="empty" id="empty">Your note will appear here. If it picked the wrong update, tap the right one and the note changes.</div>
+      <div id="out"></div>
+      <datalist id="wi-next">
+        <option value="CHASE FOR ORDER CONFIRMATION"></option>
+        <option value="CHASE FOR SHIPPING DATE"></option>
+        <option value="TRACK PARCEL"></option>
+        <option value="ASSIGN TO WAREHOUSE"></option>
+        <option value="PENDING RESOLUTION"></option>
+      </datalist>
+    </section>
+  </div>
+
+  <section class="install" id="install" hidden>
+    <h2>Add this to Outlook</h2>
+    <p>Download the add-in file, then in Outlook go to Get Add-ins, My add-ins, Custom add-ins, Add from file, and choose it. Your IT team can also give it to everyone from the Microsoft 365 admin centre.</p>
+    <button class="primary" id="getManifest" type="button">Download the Outlook add-in file</button>
+  </section>
+  <div class="help">
+    How to use it
+    <ol>
+      <li>Enter your initials and your company’s email domain once. They’re remembered on this computer.</li>
+      <li>Drag the email out of Outlook onto your desktop or a folder, then drag that file onto the email box. The note is written straight away. You can also click “Open email file”, or paste the email and click “Write note”.</li>
+      <li>Check the note. If it’s wrong, tap the right update type or edit the text.</li>
+      <li>For a tricky email, click “Ask Copilot”. It copies the email with instructions and opens Copilot Chat. Paste, press Enter, then copy Copilot’s answer back into the box and click “Use Copilot’s answer”.</li>
+      <li>Click the big navy copy button and paste into OrderWise. Click it again for the next action, then again for the date. The highlighted box shows what it will copy next.</li>
+      <li>When you’re done, click “Reset” (or press Esc) to clear everything for the next email. Your initials and domain stay saved.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+(function(){
+const $ = id => document.getElementById(id);
+const store = {
+  get(k){ try { return localStorage.getItem(k) || ""; } catch(e){ return ""; } },
+  set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+};
+$("initials").value = store.get("ow-initials");
+$("domain").value = store.get("ow-domain");
+$("initials").addEventListener("input", e => store.set("ow-initials", e.target.value.trim().toUpperCase()));
+$("domain").addEventListener("input", e => store.set("ow-domain", e.target.value.trim().toLowerCase()));
+
+/* ---------- dates ---------- */
+const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+const DAYS = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+const fmt = d => String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear();
+const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+function addWorkingDays(d, n){
+  const r = new Date(d);
+  while(n > 0){ r.setDate(r.getDate()+1); if (r.getDay()!==0 && r.getDay()!==6) n--; }
+  return r;
+}
+function nextWorkingDay(d){ return addWorkingDays(d,1); }
+function findDate(text){
+  const today = startOfDay(new Date());
+  let m = text.match(/\b(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})\b/);
+  if (m){
+    let y = +m[3]; if (y < 100) y += 2000;
+    const d = new Date(y, +m[2]-1, +m[1]);
+    if (!isNaN(d) && d.getMonth() === +m[2]-1) return d;
+  }
+  m = text.match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+(?:of\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\b/i)
+   || null;
+  if (m){
+    const mi = MONTHS.indexOf(m[2].slice(0,3).toLowerCase());
+    let d = new Date(today.getFullYear(), mi, +m[1]);
+    if (d < today && (today - d) > 60*864e5) d.setFullYear(d.getFullYear()+1);
+    return d;
+  }
+  m = text.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?\b/i);
+  if (m){
+    const mi = MONTHS.indexOf(m[1].slice(0,3).toLowerCase());
+    let d = new Date(today.getFullYear(), mi, +m[2]);
+    if (d < today && (today - d) > 60*864e5) d.setFullYear(d.getFullYear()+1);
+    return d;
+  }
+  m = text.match(/\bin\s+(\d+|a|one|two|three|four|five|six)\s+(working\s+days?|days?|weeks?)\b/i);
+  if (m){
+    const words = {a:1,one:1,two:2,three:3,four:4,five:5,six:6};
+    const n = words[m[1].toLowerCase()] || +m[1];
+    if (/working/i.test(m[2])) return addWorkingDays(today, n);
+    const d = new Date(today); d.setDate(d.getDate() + n * (/week/i.test(m[2]) ? 7 : 1)); return d;
+  }
+  if (/\bend of (?:the |this )?month\b/i.test(text)){ return new Date(today.getFullYear(), today.getMonth()+1, 0); }
+  if (/\bend of (?:the |this )?week\b/i.test(text)){ const d = new Date(today); d.setDate(d.getDate() + ((5 - d.getDay() + 7) % 7)); return d; }
+  if (/\btomorrow\b/i.test(text)){ const d = new Date(today); d.setDate(d.getDate()+1); return d; }
+  if (/\bnext week\b/i.test(text)){ const d = new Date(today); d.setDate(d.getDate() + (8 - d.getDay()) % 7 || 7); return d; }
+  m = text.match(/\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i);
+  if (m){
+    const target = DAYS.indexOf(m[1].toLowerCase());
+    const d = new Date(today); let diff = (target - d.getDay() + 7) % 7; if (diff === 0) diff = 7;
+    d.setDate(d.getDate()+diff); return d;
+  }
+  return null;
+}
+
+/* ---------- email parsing ---------- */
+const GREETING = /^\s*(hi|hello|dear|morning|good morning|good afternoon|afternoon|hey)\b[^.!?]{0,30}[,!.]?\s*$/i;
+const SIGNOFF = /^\s*(thanks|thank you|many thanks|kind regards|best regards|regards|best wishes|best|cheers|warm regards|thanks again|thanks in advance|speak soon|ta)[\s,!.]*(\w+)?[\s,!.]*$/i;
+function cleanBody(lines){
+  const out = [];
+  let substantive = false;
+  for (const l of lines){
+    if (/^\s*>/.test(l)) continue;
+    if (/^\s*sent from my /i.test(l)) break;
+    if (SIGNOFF.test(l) && substantive) break;
+    if (l.trim() && !GREETING.test(l) && !SIGNOFF.test(l) && l.trim().length > 12) substantive = true;
+    out.push(l);
+  }
+  return out.join("\n").replace(/\n{3,}/g,"\n\n").trim();
+}
+/* Splits a pasted email or thread into messages, newest first */
+function splitThread(raw){
+  const lines = raw.replace(/\r/g,"").split("\n");
+  const msgs = [];
+  let cur = {from:"", subject:"", lines:[]};
+  let inHeader = true;
+  const startRe = /^\s*(?:\*\s*)?From:\s*(.+)$/i;
+  for (let i=0;i<lines.length;i++){
+    const l = lines[i];
+    let m;
+    if ((m = l.match(startRe)) && (i > 0 || true)){
+      if (cur.lines.some(x => x.trim()) || cur.from){ msgs.push(cur); }
+      cur = {from: m[1].trim(), subject:"", lines:[]}; inHeader = true; continue;
+    }
+    if ((m = l.match(/^\s*On\s.{5,120}?(?:,|\s)\s*(.*?)\s*wrote:\s*$/i))){
+      if (cur.lines.some(x => x.trim()) || cur.from){ msgs.push(cur); }
+      cur = {from: m[1] || l, subject:"", lines:[]}; inHeader = false; continue;
+    }
+    if (/^\s*-{2,}\s*(Original|Forwarded) Message/i.test(l) || /^\s*_{5,}\s*$/.test(l)) continue;
+    if (inHeader){
+      if ((m = l.match(/^\s*Subject:\s*(.+)$/i))){ cur.subject = m[1]; continue; }
+      if ((m = l.match(/^\s*(?:Sent|Date):\s*(.+)$/i))){ cur.sent = m[1].trim(); continue; }
+      if (/^\s*(To|Cc|Bcc|Importance):/i.test(l)) continue;
+      if (l.trim()) inHeader = false;
+    }
+    cur.lines.push(l);
+  }
+  msgs.push(cur);
+  const out = msgs.map(x => ({from:x.from, subject:x.subject, sent:x.sent || "", body: cleanBody(x.lines)})).filter(x => x.body || x.subject);
+  return out.length ? out : [{from:"", subject:"", body: raw.trim()}];
+}
+function isOurs(from, ourDomain){
+  const d = (from.match(/@([A-Z0-9.\-]+\.[A-Z]{2,})/i) || [])[1];
+  if (!d || !ourDomain) return null;
+  return d.toLowerCase().endsWith(ourDomain.replace(/^@/,""));
+}
+
+function senderInfo(header, all, ourDomain){
+  const emails = (header.from + " " + all).match(/[A-Z0-9._%+\-]+@([A-Z0-9.\-]+\.[A-Z]{2,})/ig) || [];
+  const first = header.from.match(/[A-Z0-9._%+\-]+@([A-Z0-9.\-]+\.[A-Z]{2,})/i) || (emails[0] ? emails[0].match(/@(.+)$/) : null);
+  const fromDomain = first ? first[1].toLowerCase() : "";
+  const fromUs = !!(ourDomain && fromDomain && fromDomain.endsWith(ourDomain.replace(/^@/,"")));
+  // supplier domain: first domain in the email that isn't ours
+  let supDomain = "";
+  for (const e of emails){ const d = e.split("@")[1].toLowerCase(); if (!ourDomain || !d.endsWith(ourDomain.replace(/^@/,""))){ supDomain = d; break; } }
+  let supplier = "";
+  if (supDomain){
+    const parts = supDomain.split(".");
+    const generic = ["co","com","org","net","uk","ltd","gov","ac"];
+    const name = parts.find(p => !generic.includes(p)) || parts[0];
+    supplier = name.charAt(0).toUpperCase() + name.slice(1);
+  }
+  return {fromUs, supplier, fromDomain};
+}
+
+function findPOs(subject, latest){
+  const found = new Set();
+  const prefixed = /\b(?:p\.?\s?o\.?|purchase\s+order|call[\s\-]?off(?:\s+p\.?o\.?)?|order)\s*(?:no\.?|number|ref\.?|#|:)?\s*(\d{4,7})\b/gi;
+  let m;
+  for (const t of [subject, latest]){ while ((m = prefixed.exec(t))) found.add(m[1]); prefixed.lastIndex = 0; }
+  // bare numbers in the latest message that look like the POs we already know the length of
+  const lens = new Set([...found].map(p => p.length)); if (!lens.size) lens.add(5);
+  const bare = /(?<![\d\/.\-+])\b(\d{4,7})\b(?![\d\/.\-])/g;
+  const cleaned = latest.replace(/(?:tel|phone|mobile|m|t|fax)\s*[:.]?\s*[+\d()\s\-]{8,}/gi," ");
+  while ((m = bare.exec(cleaned))){
+    const n = m[1];
+    const y = +n; if (n.length === 4 && y >= 1990 && y <= 2100) continue;
+    if (lens.has(n.length)) found.add(n);
+  }
+  return [...found];
+}
+
+const CARRIERS = [
+  ["UPS", /\bUPS\b/i], ["DHL", /\bDHL\b/i], ["DPD", /\bDPD\b/i], ["FedEx", /\bfed\s?ex\b/i],
+  ["TNT", /\bTNT\b/i], ["Royal Mail", /\broyal\s?mail\b/i], ["Parcelforce", /\bparcel\s?force\b/i],
+  ["DB Schenker", /\bschenker\b/i], ["TLP", /\bTLP\b/], ["Premier Gold", /\bpremier\s+gold\b/i],
+  ["Kuehne+Nagel", /\bkuehne/i], ["Palletways", /\bpalletways\b/i], ["Evri", /\bevri|hermes\b/i], ["Yodel", /\byodel\b/i]
+];
+function findCarrier(text){
+  for (const [name, re] of CARRIERS){ if (re.test(text)) {
+    const service = name === "UPS" ? (text.match(/\bUPS\s+(express\s+saver|express|standard|saver|expedited)\b/i)||[])[1] : null;
+    return service ? name + " " + service.replace(/\b\w/g,c=>c.toUpperCase()) : name;
+  }}
+  return "";
+}
+/* ---------- tracking numbers ---------- */
+const CARRIER_DOMAINS = [
+  ["ups.com","UPS"],["dhl.","DHL"],["dpd.","DPD"],["fedex.","FedEx"],["royalmail.","Royal Mail"],
+  ["parcelforce.","Parcelforce"],["evri.","Evri"],["hermes","Evri"],["yodel.","Yodel"],["tnt.","TNT"],
+  ["dbschenker.","DB Schenker"],["schenker","DB Schenker"],["apc-overnight.","APC"],["palletways.","Palletways"],
+  ["kuehne-nagel.","Kuehne+Nagel"],["tlp","TLP"],["parcel2go.","Parcel2Go"]
+];
+const CARRIER_WORDS = /\b(UPS|DHL|DPD|Fed\s?Ex|TNT|Evri|Hermes|Yodel|Royal\s?Mail|Parcel\s?force|APC|(?:DB\s)?Schenker|TLP|Palletways|Premier\s+Gold|Kuehne)\b/ig;
+function normCarrier(w){
+  const x = w.toLowerCase().replace(/\s+/g,"");
+  return ({ups:"UPS",dhl:"DHL",dpd:"DPD",fedex:"FedEx",tnt:"TNT",evri:"Evri",hermes:"Evri",yodel:"Yodel",royalmail:"Royal Mail",
+           parcelforce:"Parcelforce",apc:"APC",schenker:"DB Schenker",dbschenker:"DB Schenker",tlp:"TLP",palletways:"Palletways",
+           premiergold:"Premier Gold",kuehne:"Kuehne+Nagel"})[x] || w;
+}
+function carrierBefore(text, index){
+  const before = text.slice(Math.max(0, index - 90), index);
+  let m, last = "";
+  CARRIER_WORDS.lastIndex = 0;
+  while ((m = CARRIER_WORDS.exec(before))) last = m[1];
+  return last ? normCarrier(last) : "";
+}
+function findTrackings(text, exclude){
+  const found = [];
+  const seen = new Set((exclude || []).map(x => String(x)));
+  const add = (num, carrier) => {
+    let clean = num.replace(/[\s]+/g," ").trim().toUpperCase();
+    if (/^[\d ]+$/.test(clean)) clean = clean.replace(/ /g,"");
+    const key = clean.replace(/[\s\-]/g,"");
+    if (key.length < 6 || !/\d{4}/.test(key) || seen.has(key)) return;
+    if (/^0\d{9,10}$/.test(key) || /^44\d{9,10}$/.test(key)) return;            // phone numbers
+    if (/^\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}$/.test(clean)) return;               // dates
+    seen.add(key); found.push({carrier: carrier || "", number: clean});
+  };
+  let m;
+  // tracking links
+  const urlRe = /https?:\/\/[^\s<>"')]+/gi;
+  while ((m = urlRe.exec(text))){
+    const url = m[0];
+    const dom = CARRIER_DOMAINS.find(([d]) => url.toLowerCase().includes(d));
+    if (!dom && !/track|trace|parcel|consignment|shipment/i.test(url)) continue;
+    const q = url.match(/[?&#](?:tracknum|tracknumbers?|tracking[-_]?(?:id|number|no)?|trackingnumbers?|awb|id|consignment(?:number)?|parcel(?:number)?|parcelcode|ref|reference|q|query|barcode|shipmentnumber)=([A-Z0-9\-%]{6,40})/i);
+    const path = url.split(/[?#]/)[0].split("/").filter(Boolean).pop() || "";
+    const num = q ? decodeURIComponent(q[1]) : (/\d{6,}/.test(path) && /^[A-Z0-9\-]{6,40}$/i.test(path) ? path : "");
+    if (num) add(num, dom ? dom[1] : carrierBefore(text, m.index));
+  }
+  const noUrls = text.replace(urlRe, " ");
+  // formats that identify themselves
+  const strong = [
+    [/\b1Z[0-9A-Z]{16}\b/gi, "UPS"],
+    [/\b[A-Z]{2}\d{9}GB\b/g, null],
+    [/\bJJD\d{10,22}\b/gi, "DHL"],
+    [/\bJVGL\d{8,22}\b/gi, "DHL"],
+    [/\bJD\d{16,18}\b/g, "Yodel"]
+  ];
+  for (const [re, carrier] of strong){
+    re.lastIndex = 0;
+    while ((m = re.exec(noUrls))){
+      let c = carrier;
+      if (!c) c = /parcel\s?force/i.test(noUrls) ? "Parcelforce" : "Royal Mail";
+      add(m[0], c);
+    }
+  }
+  // labelled numbers: "tracking no: X", "AWB X", "consignment number X"
+  const labelRe = /\b(?:tracking|track(?:ing)?\s*(?:no|number|ref|reference|id|#|code)|tracking\s+(?:no|number|ref|reference|id|code)|air\s*way\s*bill|airway\s*bill|awb|waybill|way\s*bill|consignment(?:\s*(?:no|number|note|ref))?|con\s*no|shipment\s*(?:no|number|id|ref)|parcel\s*(?:no|number|id|ref)|courier\s*ref(?:erence)?)\b[\s.:#\-–]*(?:is|are|number|no\.?|for\s+this\s+is)?[\s.:#\-–]*((?:[A-Z]{0,5}\d[\dA-Z]*)(?:[ \-]\d[\dA-Z]*){0,4})/gi;
+  while ((m = labelRe.exec(noUrls))){
+    const digits = m[1].replace(/\D/g,"");
+    if (digits.length < 6) continue;
+    add(m[1], carrierBefore(noUrls, m.index + m[0].length - m[1].length) || (/a(?:ir)?\s*w(?:ay)?\s*b(?:ill)?|awb/i.test(m[0]) ? "AWB" : ""));
+  }
+  // numbers right after a carrier name: "DHL 2338692834", "via DPD, ref 15501234567890"
+  const afterCarrier = /\b(UPS|DHL|DPD|Fed\s?Ex|TNT|Evri|Hermes|Yodel|Parcel\s?force|APC|Schenker|TLP|Palletways)\b[^.\n]{0,40}?\b(\d[\d ]{6,24}\d)\b/gi;
+  while ((m = afterCarrier.exec(noUrls))){
+    const digits = m[2].replace(/\D/g,"");
+    if (digits.length < 8 || digits.length > 22) continue;
+    add(m[2].replace(/\s+/g, digits.length === m[2].length ? "" : " "), normCarrier(m[1]));
+  }
+  return found;
+}
+
+/* ---------- update types ---------- */
+const NEXT = {
+  conf: "CHASE FOR ORDER CONFIRMATION",
+  ship: "CHASE FOR SHIPPING DATE",
+  track: "TRACK PARCEL",
+  warehouse: "ASSIGN TO WAREHOUSE",
+  issue: "PENDING RESOLUTION"
+};
+const TYPES = {
+  query:     {label:"Query / issue",     next:NEXT.issue,     days:2},
+  shipped:   {label:"Shipped",           next:NEXT.track,     days:1},
+  partial:   {label:"Partial shipment",  next:NEXT.track,     days:1},
+  ready:     {label:"Ready to ship",     next:NEXT.ship,      days:2},
+  delayed:   {label:"Delay advised",     next:NEXT.ship,      days:3},
+  eta:       {label:"ETA given",         next:NEXT.ship,      days:3},
+  update:    {label:"Supplier checking", next:NEXT.ship,      days:2},
+  confirmed: {label:"Order confirmed",   next:NEXT.ship,      days:5},
+  delivered: {label:"Delivered",         next:NEXT.warehouse, days:0},
+  placed:    {label:"PO sent",           next:NEXT.conf,      days:2},
+  chased:    {label:"We chased",         next:NEXT.ship,      days:2},
+  other:     {label:"Other",             next:"",             days:3}
+};
+function nextActionFor(item){
+  if (item.type === "chased") return /\b(confirm|confirmation|acknowledg)/i.test(item.scope || "") && !/\b(ship|dispatch|despatch|eta|tracking|deliver)/i.test(item.scope || "") ? NEXT.conf : NEXT.ship;
+  return TYPES[item.type].next;
+}
+const RULES = {
+  query:     /\b(damage[ds]?|upside down|broken|leak(?:ing|ed)?|incorrect|wrong (?:item|product|goods|batch|lot)|missing|short(?:age| shipped| delivered)?|query|issue with|problem|faulty|discrepanc|return(?:ed)?|credit note|expired|short dated?)\b/,
+  delivered: /\b(delivered|proof of delivery|\bpod\b|signed for|has arrived|have arrived|arrived (?:with|at) you)\b/,
+  partial:   /\b(partial(?:ly)?|part shipment|balance (?:to follow|will follow|of the order)|remaining (?:items|stock|quantity))\b/,
+  shipped:   /\b(shipped|dispatched|despatched|collected|on its way|in transit|has been sent|have been sent|sent (?:today|out|yesterday)|went out|has gone out|posted|tracking|en route|picked up|out for delivery|has left|left our|gone out|awb|waybill|consignment (?:no|number))\b/,
+  ready:     /\b(ready (?:for|to) (?:collection|dispatch|despatch|ship|go)|goods are ready|collection (?:is )?booked|booked (?:for|in for) collection|will be collected|will (?:ship|dispatch|despatch|be dispatched|be despatched|be shipped)|due to (?:ship|dispatch|despatch))\b/,
+  delayed:   /\b(delay(?:ed|s)?|pushed (?:back|out)|slipped|postponed|revised (?:date|eta)|new (?:date|eta)|later than (?:expected|planned)|unfortunately|back ?order(?:ed)?|out of stock|awaiting (?:stock|materials|components|raw materials)|no stock)\b/,
+  eta:       /\b(eta|expected|estimated|due (?:on|by|in|w\/c)|lead time|arriv(?:e|ing|al)|delivery date|w\/c|week commencing|should be (?:with you|ready|delivered))\b/,
+  update:    /\b(production|will (?:let you know|update|advise|confirm|come back|get back)|come back to (?:me|you)|get back to you|checking|chasing (?:this|internally|our)|find out|look(?:ing)? into|asked (?:our|the)|bear with|check with)\b/,
+  confirmed: /\b(confirm(?:ed|ing)? (?:receipt|your order|the order|order)|order confirmation|acknowledg(?:e|ed|ement)|order received|received your (?:order|po)|thank you for your (?:order|po)|sales order|order number is|our ref(?:erence)? is|processed|been placed|proforma)\b/,
+  placed:    /\b(please find (?:attached|enclosed) (?:our |a |the )?(?:po|purchase order|order)|attached (?:is )?(?:our |a |the )?(?:po|purchase order)|new (?:po|purchase order|order) attached|please (?:accept|process) (?:the |this |our )?(?:attached )?(?:po|order))\b/,
+  chased:    /\b(any update|chas(?:e|ing)|please (?:advise|confirm|update)|could you (?:advise|confirm|update|let me know)|when (?:will|can|is)|status|eta\?|follow(?:ing)? up)\b/
+};
+function classify(text, fromUs){
+  const t = text.toLowerCase();
+  const hasDate = !!findDate(text);
+  if (fromUs){
+    if (RULES.placed.test(t)) return "placed";
+    if (RULES.query.test(t)) return "query";
+    if (RULES.chased.test(t)) return "chased";
+    return "other";
+  }
+  if (RULES.query.test(t)) return "query";
+  if (RULES.delivered.test(t)) return "delivered";
+  if (RULES.partial.test(t) && (RULES.shipped.test(t) || /\b(sent|ship)/.test(t))) return "partial";
+  const past = t.replace(/\b(?:will|we'll|we will|i'll|i will|once|when|as soon as)\b[^.]{0,50}?\b(?:tracking|shipped|dispatched|despatched|collected|sent)\b/g, " ");
+  if (RULES.shipped.test(past)) return "shipped";
+  if (RULES.delayed.test(t)) return "delayed";
+  if (RULES.ready.test(t)) return "ready";
+  if (RULES.eta.test(t) && hasDate) return "eta";
+  if (RULES.update.test(t)) return "update";
+  if (RULES.confirmed.test(t)) return hasDate && RULES.eta.test(t) ? "eta" : "confirmed";
+  if (RULES.eta.test(t) && /\b(ready|available)\b/.test(t)) return "update";
+  return "other";
+}
+
+function sentencesFor(po, latest){
+  const parts = latest.replace(/\n+/g," ").split(/(?<=[.!?])\s+|\s+[–—-]\s+/);
+  const hits = [];
+  parts.forEach((s,i) => { if (new RegExp("\\b"+po+"\\b").test(s)){ hits.push(s); if (parts[i+1] && !/\b\d{4,7}\b/.test(parts[i+1])) hits.push(parts[i+1]); } });
+  return hits.join("\n");
+}
+
+function buildNote(item, initials, multi){
+  const today = fmt(new Date());
+  const head = "(" + initials + ") " + today + (multi ? " (PO " + item.po + ")" : "") + " ";
+  let line;
+  switch(item.type){
+    case "query":     line = "Query raised with supplier"; break;
+    case "shipped":   line = item.carrier ? "Shipped via " + item.carrier : "Shipping info received"; break;
+    case "partial":   line = "Partial shipment sent" + (item.carrier ? " via " + item.carrier : "") + ", balance to follow"; break;
+    case "delayed":   line = "Delay advised" + (item.date ? ", new ETA " + fmt(item.date) : ""); break;
+    case "eta":       line = (item.confirmed ? "Order confirmation received, ETA " : "ETA advised as ") + (item.date ? fmt(item.date) : "TBC"); break;
+    case "update":    line = "Supplier checking with production, will update"; break;
+    case "confirmed": line = "Order confirmation received"; break;
+    case "delivered": line = "Supplier advised goods delivered"; break;
+    case "chased":    line = nextActionFor(item) === NEXT.conf ? "Chased for order confirmation" : "Chased for ETA"; break;
+    case "ready":     line = "Supplier advised goods ready for dispatch" + (item.date ? ", due " + fmt(item.date) : ""); break;
+    case "placed":    line = "PO sent to supplier"; break;
+    default:          line = "Update received from supplier";
+  }
+  let note = head + line;
+  (item.trackings || []).forEach(t => {
+    const c = t.carrier || (item.carrier ? item.carrier.split(" ")[0] : "") || "Tracking";
+    note += "\n" + c + ": " + t.number;
+  });
+  if (ctx.sumInNote){
+    const sm = noteSummary(item);
+    if (sm) note += "\n" + sm;
+  }
+  return note;
+}
+function noteSummary(item){
+  const pos = items.map(i => i.po).filter(Boolean);
+  const src = item.scope || "";
+  let pts = summariseMessage(src, pos);
+  // drop sentences that only repeat a tracking number already on its own line
+  pts = pts.filter(p => !(item.trackings || []).some(t => p.replace(/\s/g,"").toUpperCase() === t.number.replace(/\s/g,"")));
+  if (!pts.length) return "";
+  pts = pts.map(p => p.replace(/https?:\/\/\S+/g, "").replace(/\s+([.,;:])/g,"$1").replace(/[:\s]+$/,"").trim()).filter(p => p.length > 3);
+  if (!pts.length) return "";
+  let text = pts.slice(0,2).map(p => /[.!?…]$/.test(p) ? p : p + ".").join(" ").replace(/\s+/g," ").trim();
+  text = text.charAt(0).toUpperCase() + text.slice(1);
+  if (text.length > 280) text = text.slice(0,277).replace(/\s+\S*$/,"") + "…";
+  const m = (ctx.msgs || [])[item.used || 0] || {};
+  const name = (m.from || "").replace(/<.*?>/,"").replace(/["']/g,"").trim().split(/\s+/)[0];
+  const who = m.ours ? "We wrote" : (name ? name + " said" : "Supplier said");
+  return who + ": " + text;
+}
+function nextDateFor(item){
+  const today = startOfDay(new Date());
+  if (["eta","delayed","ready"].includes(item.type) && item.date && item.date >= today) return nextWorkingDay(item.date);
+  return addWorkingDays(today, TYPES[item.type].days);
+}
+
+/* ---------- summary ---------- */
+const FLUFF = /\b(hope (?:you(?:'re| are)|this finds|all is)|trust you|let me know if you (?:have|need)|any (?:other )?questions|don'?t hesitate|thank you for your (?:email|message|time|patience)|thanks for (?:your|the) (?:email|message|update)|have a (?:great|good|lovely|nice)|speak (?:soon|to you)|look forward|happy to help|many thanks|kind regards|best regards|please see (?:below|attached)|see below|see attached|please find attached|this email (?:and|is)|confidential|disclaimer|unsubscribe|virus|intended recipient)\b/i;
+function sentencesOf(body){
+  return body.split(/\n+/).flatMap(line => line.split(/(?<=[.!?])\s+(?=[A-Z0-9])|\s+[–—]\s+/))
+    .map(x => x.replace(/\s+/g," ").trim()
+      .replace(/^(?:hi|hello|dear|hey|morning|good morning|good afternoon|afternoon)\b[ ,]*(?:[A-Z][a-z]+)?[,!.]?\s+(?=\S)/i, ""))
+    .filter(x => x.length > 3);
+}
+function scoreSentence(x, pos){
+  let sc = 0;
+  const t = x.toLowerCase();
+  if (pos.some(p => p && new RegExp("\\b" + p + "\\b").test(x))) sc += 3;
+  if (findTrackings(x, pos).length) sc += 3;
+  if (findDate(x)) sc += 2;
+  for (const k of ["query","delivered","partial","shipped","ready","delayed","eta","update","confirmed","placed","chased"]) if (RULES[k].test(t)) { sc += 2; break; }
+  if (/\b(price|cost|invoice|quote|quantity|qty|stock|batch|lot|expiry|units?|boxes|pallets?)\b/.test(t)) sc += 1;
+  if (/\?\s*$/.test(x)) sc += 1;
+  if (FLUFF.test(x)) sc -= 4;
+  if (GREETING.test(x) || SIGNOFF.test(x)) sc -= 5;
+  if (/^(?:from|sent|to|cc|subject|tel|t|m|mobile|phone|fax|www\.|https?:)/i.test(x)) sc -= 5;
+  return sc;
+}
+function summariseMessage(body, pos){
+  const sents = sentencesOf(body);
+  const scored = sents.map((x,i) => ({x, i, sc: scoreSentence(x, pos)}));
+  let keep = scored.filter(s => s.sc >= 2).sort((a,b) => b.sc - a.sc).slice(0,3).sort((a,b) => a.i - b.i);
+  if (!keep.length){
+    const first = scored.find(s => s.sc > -2 && s.x.length > 15);
+    if (first) keep = [first];
+  }
+  return keep.map(s => s.x.length > 220 ? s.x.slice(0,217).replace(/\s+\S*$/,"") + "…" : s.x);
+}
+function shortSent(sent){
+  if (!sent) return "";
+  const d = new Date(sent.replace(/^\w+day,?\s*/i,""));
+  if (!isNaN(d) && d.getFullYear() > 2000) return fmt(d);
+  return sent.replace(/^\w+day,?\s*/i,"").slice(0,24);
+}
+function personOf(m){
+  const n = (m.from || "").replace(/<.*?>/,"").replace(/["']/g,"").trim();
+  return n || (m.ours ? "Us" : "Supplier");
+}
+function buildSummary(){
+  const pos = items.map(i => i.po).filter(Boolean);
+  const msgs = (ctx.msgs || []).slice(0,5);
+  const lines = msgs.map((m,i) => {
+    const pts = summariseMessage(m.body, pos);
+    const name = (m.from || "").replace(/<.*?>/,"").replace(/["']/g,"").trim();
+    const who = name ? name + (m.ours ? " (us)" : " (supplier)") : (m.ours ? "us" : "supplier");
+    return {head: (i === 0 ? "Latest" : "Earlier") + " · " + who + (shortSent(m.sent) ? " · " + shortSent(m.sent) : ""), pts};
+  }).filter(l => l.pts.length);
+  const facts = [];
+  if (pos.length) facts.push("PO " + pos.join(", "));
+  if (ctx.supplier) facts.push("Supplier: " + ctx.supplier);
+  const tr = items.flatMap(i => i.trackings || []);
+  if (tr.length) facts.push("Tracking: " + tr.map(t => (t.carrier ? t.carrier + " " : "") + t.number).join(", "));
+  const status = items.map(i => (items.length > 1 && i.po ? "PO " + i.po + ": " : "") + TYPES[i.type].label).join("; ");
+  if (status) facts.push("Status: " + status);
+  return {facts, lines};
+}
+function summaryText(sm){
+  const out = ["Email summary" + (ctx.subject ? ": " + ctx.subject : "")];
+  if (sm.facts.length) out.push(sm.facts.join(" | "));
+  sm.lines.forEach(l => { out.push(""); out.push(l.head); l.pts.forEach(p => out.push("- " + p)); });
+  return out.join("\n");
+}
+
+/* ---------- render ---------- */
+let items = [], ctx = {};
+function render(){
+  const out = $("out"); out.innerHTML = "";
+  const meta = document.createElement("div"); meta.className = "meta";
+  meta.innerHTML = "Supplier: <b></b> · Latest message from: <b></b>";
+  meta.querySelectorAll("b")[0].textContent = ctx.supplier || "not found";
+  meta.querySelectorAll("b")[1].textContent = ctx.fromUs ? "us" : (ctx.domain ? "supplier" : "unknown (add our email domain)");
+  out.appendChild(meta);
+  const tog = document.createElement("label"); tog.className = "toggle";
+  const cbx = document.createElement("input"); cbx.type = "checkbox"; cbx.checked = !!ctx.sumInNote;
+  cbx.addEventListener("change", () => {
+    ctx.sumInNote = cbx.checked; store.set("ow-sumnote", cbx.checked ? "1" : "0");
+    items.forEach(i => fill(i, items.length > 1));
+  });
+  tog.appendChild(cbx); tog.appendChild(document.createTextNode(" Add an email summary to the OrderWise note"));
+  out.appendChild(tog);
+  const sm = buildSummary();
+  if (sm.lines.length || sm.facts.length){
+    const box = document.createElement("section"); box.className = "summary"; box.setAttribute("aria-label","Email summary");
+    const hd = document.createElement("div"); hd.className = "summary-h";
+    const h = document.createElement("h3"); h.textContent = "Summary";
+    const cb = document.createElement("button"); cb.className = "copy"; cb.type = "button"; cb.textContent = "Copy summary";
+    cb.addEventListener("click", async () => { const ok = await copyText(summaryText(buildSummary())); cb.textContent = ok ? "Copied" : "Select and copy"; cb.classList.toggle("done", ok); setTimeout(() => { cb.textContent = "Copy summary"; cb.classList.remove("done"); }, 1500); });
+    hd.appendChild(h); hd.appendChild(cb); box.appendChild(hd);
+    if (sm.facts.length){ const f = document.createElement("p"); f.className = "facts"; f.textContent = sm.facts.join("  |  "); box.appendChild(f); }
+    sm.lines.forEach(l => {
+      const w = document.createElement("div"); w.className = "sum-msg";
+      const lh = document.createElement("div"); lh.className = "sum-h"; lh.textContent = l.head; w.appendChild(lh);
+      const ul = document.createElement("ul"); l.pts.forEach(p => { const li = document.createElement("li"); li.textContent = p; ul.appendChild(li); }); w.appendChild(ul);
+      box.appendChild(w);
+    });
+    out.appendChild(box);
+  }
+  if (ctx.msgs && ctx.msgs.length){
+    const det = document.createElement("details"); det.className = "read";
+    const sum = document.createElement("summary");
+    sum.textContent = "What it read (" + ctx.msgs.length + (ctx.msgs.length === 1 ? " message)" : " messages in the thread)");
+    det.appendChild(sum);
+    const usedSet = new Set(items.map(i => i.used));
+    ctx.msgs.forEach((m,i) => {
+      const d = document.createElement("div"); d.className = "msg" + (usedSet.has(i) ? " used" : "");
+      const h = document.createElement("div"); h.className = "msg-h";
+      h.textContent = (i === 0 ? "Latest" : "Earlier " + i) + " · " + (m.ours ? "from us" : "from supplier") + (m.from ? " · " + m.from.replace(/<.*?>/,"").trim() : "") + (usedSet.has(i) ? " · used for the note" : "");
+      const b = document.createElement("div"); b.className = "msg-b"; b.textContent = m.body.length > 600 ? m.body.slice(0,600) + "…" : (m.body || "(empty)");
+      d.appendChild(h); d.appendChild(b); det.appendChild(d);
+    });
+    out.appendChild(det);
+  }
+  const multi = items.length > 1;
+  items.forEach((item, idx) => {
+    const box = document.createElement("div"); box.className = "po";
+    const head = document.createElement("div"); head.className = "po-head";
+    const h = document.createElement("h3"); h.textContent = item.po ? "PO " + item.po : "PO not found";
+    head.appendChild(h); box.appendChild(head);
+
+    const chips = document.createElement("div"); chips.className = "chips"; chips.setAttribute("role","group"); chips.setAttribute("aria-label","Update type");
+    Object.entries(TYPES).forEach(([k,v]) => {
+      const c = document.createElement("button"); c.className = "chip"; c.type = "button"; c.textContent = v.label;
+      c.setAttribute("aria-pressed", String(k === item.type));
+      c.addEventListener("click", () => { item.type = k; refresh(idx); });
+      chips.appendChild(c);
+    });
+    box.appendChild(chips);
+
+    const ta = document.createElement("textarea"); ta.className = "note"; ta.setAttribute("aria-label","Note");
+    box.appendChild(ta);
+
+    const fields = document.createElement("div"); fields.className = "fields";
+    fields.innerHTML = '<label>Next action<input class="na" list="wi-next"></label><label>Next action by<input class="nd"></label>';
+    box.appendChild(fields);
+
+    const copies = document.createElement("div"); copies.className = "copies";
+    const na = fields.querySelector(".na"), nd = fields.querySelector(".nd");
+    const steps = [["note", ta], ["next action", na], ["next action date", nd]];
+    const big = document.createElement("button"); big.className = "primary step"; big.type = "button";
+    const said = document.createElement("span"); said.className = "said"; said.setAttribute("aria-live","polite");
+    item.step = 0;
+    item.showStep = () => {
+      steps.forEach(([,el],i) => el.classList.toggle("next-field", i === item.step));
+      big.classList.toggle("finished", item.step >= steps.length);
+      big.textContent = item.step < steps.length
+        ? "Copy " + steps[item.step][0] + " (" + (item.step+1) + " of " + steps.length + ")"
+        : "All copied. Start again";
+    };
+    big.addEventListener("click", async () => {
+      if (item.step >= steps.length){ item.step = 0; said.textContent = ""; item.showStep(); return; }
+      const [name, el] = steps[item.step];
+      const ok = await copyText(el.value);
+      if (!ok){ said.textContent = "Couldn’t copy. Select the highlighted box and press Ctrl+C."; el.focus(); el.select && el.select(); return; }
+      said.textContent = "Copied the " + name + ". Paste it into OrderWise, then click again.";
+      item.step++;
+      if (item.step >= steps.length) said.textContent = "Everything copied for PO " + (item.po || "") + ".";
+      item.showStep();
+    });
+    copies.appendChild(big);
+    const poBtn = document.createElement("button"); poBtn.className = "copy"; poBtn.type = "button"; poBtn.textContent = "Copy PO";
+    poBtn.addEventListener("click", async () => { const ok = await copyText(item.po || ""); poBtn.textContent = ok ? "Copied" : "Select and copy"; poBtn.classList.toggle("done", ok); setTimeout(()=>{poBtn.textContent="Copy PO";poBtn.classList.remove("done");},1500); });
+    copies.appendChild(poBtn);
+    box.appendChild(copies);
+    box.appendChild(said);
+
+    const flagBox = document.createElement("div"); box.appendChild(flagBox);
+    item.el = {box, flagBox, ta, na: fields.querySelector(".na"), nd: fields.querySelector(".nd"), chips};
+    out.appendChild(box);
+    fill(item, multi);
+  });
+}
+function fill(item, multi){
+  item.el.ta.value = buildNote(item, ctx.initials, multi);
+  item.el.na.value = nextActionFor(item);
+  item.el.flagBox && renderFlags(item);
+  item.el.nd.value = fmt(nextDateFor(item));
+  item.el.chips.querySelectorAll(".chip").forEach((c,i) => c.setAttribute("aria-pressed", String(Object.keys(TYPES)[i] === item.type)));
+  item.step = 0; item.showStep();
+}
+const WI_TIPS = {
+  query: "Work instruction: double-click the PO and set Non-Conformance to yes. Change it to Complete once submitted.",
+  shipped: "Work instruction: update the promised and required dates on the order.",
+  partial: "Work instruction: update the promised and required dates on the order, and keep chasing the balance.",
+  delivered: "Work instruction: assign the task to a warehouse member so the goods are received."
+};
+function renderFlags(item){
+  const box = item.el.flagBox; box.innerHTML = "";
+  const list = item.flags.filter(f => !(item.type !== "other" && /^Couldn’t tell/.test(f)));
+  if (WI_TIPS[item.type]){ const t = document.createElement("div"); t.className = "flag tip"; t.textContent = WI_TIPS[item.type]; box.appendChild(t); }
+  if (list.length){ const f = document.createElement("div"); f.className = "flag"; f.textContent = "Worth checking: " + list.join(" "); box.appendChild(f); }
+}
+function refresh(idx){
+  fill(items[idx], items.length > 1);
+  const f = document.querySelector(".summary .facts"); if (f) f.textContent = buildSummary().facts.join("  |  ");
+}
+
+$("go").addEventListener("click", () => {
+  const raw = $("email").value;
+  const initials = $("initials").value.trim().toUpperCase();
+  const domain = $("domain").value.trim().toLowerCase();
+  const st = $("status"); st.classList.remove("error");
+  if (!raw.trim()){ st.textContent = "Paste an email first."; st.classList.add("error"); return; }
+  if (!initials){ st.textContent = "Add your initials at the top first."; st.classList.add("error"); $("initials").focus(); return; }
+
+  const msgs = splitThread(raw);
+  // who sent each message; if the top one has no sender, assume it is a reply to the one below
+  msgs.forEach(m => m.ours = isOurs(m.from, domain));
+  if (msgs[0].ours === null){
+    const below = msgs.find((m,i) => i > 0 && m.ours !== null);
+    msgs[0].ours = below ? !below.ours : false;
+  }
+  msgs.forEach(m => { if (m.ours === null) m.ours = false; });
+
+  const who = senderInfo({from: msgs.map(m => m.from).join(" "), subject:""}, raw, domain);
+  ctx = {initials, domain, supplier: who.supplier, fromUs: msgs[0].ours, msgs, sumInNote: store.get("ow-sumnote") !== "0", subject: (msgs.find(m => m.subject) || {}).subject || ""};
+
+  const subjects = [msgs[0].subject, ...msgs.map(m => m.subject)].filter(Boolean).join(" ");
+  let pos = findPOs(subjects || raw.split("\n").slice(0,6).join(" "), msgs[0].body);
+  if (!pos.length) pos = findPOs(msgs.map(m => m.body).join("\n"), "");
+  const list = pos.length ? pos : [""];
+
+  items = list.map(po => {
+    let used = 0, type = "other", scope = msgs[0].body;
+    for (let i=0;i<msgs.length;i++){
+      const body = msgs[i].body;
+      const sc = (po && list.length > 1) ? (sentencesFor(po, body) || (i === 0 ? body : "")) : body;
+      if (!sc) continue;
+      const t = classify(sc, msgs[i].ours);
+      if (t !== "other"){ used = i; type = t; scope = sc; break; }
+    }
+    const m = msgs[used];
+    const flags = [];
+    if (!po) flags.push("No PO number found, so check which entry this belongs to.");
+    if (used > 0) flags.push("The latest message didn’t include an update, so this is based on an earlier message in the thread" + (m.from ? " from " + m.from.replace(/<.*?>/,"").trim() : "") + ".");
+    if (/\b(price|cost|increase|surcharge)\b/i.test(scope)) flags.push("Mentions price or cost.");
+    if (type !== "query" && /\b(damage|damaged|upside down|broken|short)\b/i.test(scope)) flags.push("Mentions damaged or short goods.");
+    if (type === "other") flags.push("Couldn’t tell what this update is, so pick a type above. Open “What it read” to see the text it used.");
+    const allPOs = list.filter(Boolean);
+    let trackings = findTrackings(scope, allPOs);
+    if (!trackings.length && ["shipped","partial","delivered","ready"].includes(type)) trackings = findTrackings(msgs.slice(used).map(x => x.body).join("\n"), allPOs);
+    if (!trackings.length && list.length > 1) trackings = [];
+    if (type === "other" && trackings.length && !msgs[used].ours){ type = "shipped"; }
+    if ((type === "shipped" || type === "partial") && !trackings.length) flags.push("No tracking number found. Ask the supplier for tracking so the parcel can be tracked.");
+    const carrierText = /ship|dispatch|despatch|sent|collected|via|courier|tracking|booked/i.test(scope) ? scope : "";
+    return {po, type, used, scope, carrier: findCarrier(carrierText) || (trackings[0] && trackings[0].carrier !== "AWB" ? trackings[0].carrier : "") || "", trackings, date: findDate(scope),
+            confirmed: RULES.confirmed.test(scope.toLowerCase()), flags};
+  });
+
+  $("empty").style.display = "none";
+  render();
+  $("reset2").hidden = false;
+  st.textContent = "Done. Check it before copying.";
+});
+
+function resetAll(){
+  $("email").value = ""; $("out").innerHTML = ""; $("empty").style.display = "";
+  const st = $("status"); st.textContent = "Reset. Ready for the next email."; st.classList.remove("error");
+  const f = $("file"); if (f) f.value = "";
+  items = []; ctx = {};
+  $("reset2").hidden = true;
+  $("copilotBox").hidden = true; $("copilotAnswer").value = "";
+  window.scrollTo({top:0, behavior:"smooth"});
+  $("email").focus();
+  setTimeout(() => { if (st.textContent.startsWith("Reset.")) st.textContent = ""; }, 2500);
+}
+
+/* ---------- Ask Copilot ---------- */
+const COPILOT_URL = "https://m365.cloud.microsoft/chat";
+function copilotPrompt(){
+  const initials = $("initials").value.trim().toUpperCase() || "??";
+  const domain = $("domain").value.trim().toLowerCase();
+  const withSummary = store.get("ow-sumnote") !== "0";
+  let email = $("email").value.trim();
+  if (email.length > 9000) email = email.slice(0, 9000) + "\n[rest of the thread cut off]";
+  const today = fmt(new Date());
+  return `You help Una Health’s purchasing team log supplier emails in OrderWise Contact Manager. Read the email below and write the Contact Manager update for each purchase order (PO) it mentions. Use only information in the email. Don’t invent PO numbers, dates or tracking numbers.
+
+Today is ${today}. UK dates, DD/MM/YYYY. The note author’s initials are ${initials}.${domain ? " Our email domain is " + domain + ", so emails from that domain are from us and anyone else is the supplier." : ""}
+
+Rules for the note:
+- First line: (${initials}) ${today} then a short plain update about the latest development, e.g. “Order confirmation received”, “Shipped via DHL”, “Chased for ETA”, “ETA advised as 20/11/2026”, “Query raised with supplier”.
+- If the latest message only says something like “see below”, use the most recent message in the thread that has real information.
+- Each tracking number on its own line as CARRIER: NUMBER, e.g. DHL: 2338692834. Use AWB: for air waybills with no carrier named.${withSummary ? "\n- Last line: a one or two sentence summary starting with the sender’s first name and “said:”, or “We wrote:” if we sent it." : ""}
+
+Next action must be one of these, following our work instruction:
+CHASE FOR ORDER CONFIRMATION (PO sent, no confirmation yet)
+CHASE FOR SHIPPING DATE (order confirmed, or ETA, delay or ready date given, no tracking yet)
+TRACK PARCEL (shipped, tracking given or due)
+ASSIGN TO WAREHOUSE (delivered, or goods due in)
+PENDING RESOLUTION (damaged, wrong, short or any other issue)
+Next action date: the working day after any ETA or ready date, otherwise 1 working day for TRACK PARCEL, 2 for chasing, 5 after an order confirmation.
+
+Reply in exactly this format and nothing else, with one block per PO:
+
+PO: 12345
+NOTE:
+(${initials}) ${today} ...
+NEXT ACTION: ...
+NEXT ACTION BY: DD/MM/YYYY
+CHECK: anything we should double-check, or None
+---
+
+Email:
+"""
+${email}
+"""`;
+}
+function parseCopilot(text){
+  const clean = text.replace(/\r/g,"").replace(/```[a-z]*\n?/gi,"").replace(/\*\*/g,"");
+  const blocks = clean.split(/\n\s*-{3,}\s*\n?|\n(?=\s*PO\s*(?:number)?\s*[:\-]\s*\S)/i).map(b => b.trim()).filter(b => /NOTE\s*:/i.test(b));
+  return blocks.map(b => {
+    const po = ((b.match(/^\s*PO\s*(?:number)?\s*[:\-]\s*([A-Z0-9\-\/]+)/im) || [])[1] || "").replace(/^PO/i,"");
+    const noteM = b.match(/NOTE\s*:\s*\n?([\s\S]*?)(?=\n\s*NEXT ACTION\s*(?:BY)?\s*:|$)/i);
+    const note = noteM ? noteM[1].split("\n").map(l => l.replace(/^\s*[-•]\s*/,"").trimEnd()).filter(l => l.trim()).join("\n").trim() : "";
+    const na = ((b.match(/^\s*NEXT ACTION\s*:\s*(.+)$/im) || [])[1] || "").trim().toUpperCase();
+    const nd = ((b.match(/^\s*NEXT ACTION BY\s*:\s*(.+)$/im) || [])[1] || "").trim();
+    const chk = ((b.match(/^\s*CHECK\s*:\s*(.+)$/im) || [])[1] || "").trim();
+    return {po, note, na, nd: (nd.match(/\d{1,2}\/\d{1,2}\/\d{2,4}/) || [nd])[0], chk: /^none\.?$/i.test(chk) ? "" : chk};
+  }).filter(x => x.note);
+}
+async function askCopilot(){
+  const st = $("status"); st.classList.remove("error");
+  if (!$("email").value.trim()){ st.textContent = "Paste or drop an email first."; st.classList.add("error"); return; }
+  if (!$("initials").value.trim()){ st.textContent = "Add your initials at the top first."; st.classList.add("error"); $("initials").focus(); return; }
+  const ok = await copyText(copilotPrompt());
+  $("copilotBox").hidden = false;
+  $("copilotMsg").textContent = ok
+    ? "Copied. In Copilot Chat, paste with Ctrl+V and press Enter. Then copy Copilot’s whole answer and paste it below."
+    : "Couldn’t copy automatically. Click “Copy the request again”, then paste it into Copilot Chat.";
+  try {
+    if (window.Office && Office.context && Office.context.ui && Office.context.ui.openBrowserWindow) Office.context.ui.openBrowserWindow(COPILOT_URL);
+    else window.open(COPILOT_URL, "_blank", "noopener");
+  } catch(e){ try { window.open(COPILOT_URL, "_blank", "noopener"); } catch(_){} }
+  $("copilotAnswer").focus();
+}
+function useCopilot(){
+  const st = $("status"); st.classList.remove("error");
+  const parsed = parseCopilot($("copilotAnswer").value);
+  if (!parsed.length){ st.textContent = "Couldn’t find a note in that answer. Copy Copilot’s whole reply, including the PO and NOTE lines."; st.classList.add("error"); return; }
+  if (!items.length) $("go").click();             // build the page from the rules first, for supplier, summary and copy buttons
+  const multi = parsed.length > 1;
+  const byPo = {};
+  items.forEach(i => { if (i.po) byPo[i.po] = i; });
+  const result = parsed.map(p => {
+    const base = byPo[p.po] || items.find(i => !i.po) || {};
+    const type = classify(p.note, /\bwe wrote\b|chased|po sent/i.test(p.note));
+    return Object.assign({}, base, {po: p.po || base.po || "", type: base.type || type, flags: (base.flags || []).filter(f => !/^Couldn’t tell|^No tracking number found/.test(f)), scope: base.scope || "", trackings: base.trackings || [], used: base.used || 0, copilot: p});
+  });
+  items = result;
+  render();
+  items.forEach(i => {
+    const p = i.copilot;
+    i.el.ta.value = p.note;
+    if (p.na) i.el.na.value = p.na;
+    if (p.nd) i.el.nd.value = p.nd;
+    i.el.chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed","false"));
+    const tag = document.createElement("span"); tag.className = "from-ai"; tag.textContent = "Written by Copilot";
+    i.el.box.querySelector(".po-head").appendChild(tag);
+    if (p.chk){ const f = document.createElement("div"); f.className = "flag"; f.textContent = "Copilot says check: " + p.chk; i.el.flagBox.appendChild(f); }
+    i.step = 0; i.showStep();
+  });
+  $("reset2").hidden = false;
+  $("empty").style.display = "none";
+  st.textContent = "Using Copilot’s answer. Check it before copying. Tapping an update type switches that PO back to the built-in rules.";
+}
+$("askCopilot").addEventListener("click", askCopilot);
+$("copyPromptAgain").addEventListener("click", async () => { const ok = await copyText(copilotPrompt()); $("copilotMsg").textContent = ok ? "Copied again. Paste it into Copilot Chat." : "Still couldn’t copy. Check your browser allows copying."; });
+$("useCopilot").addEventListener("click", useCopilot);
+$("clear").addEventListener("click", resetAll);
+$("reset2").addEventListener("click", resetAll);
+document.addEventListener("keydown", e => {
+  const t = e.target;
+  if (t && t.tagName === "INPUT" && t.hasAttribute("list")) return;   // Esc closes the next-action suggestions instead
+  if (e.key === "Escape" && (items.length || $("email").value)) resetAll();
+});
+
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch(e){
+    const ta = document.createElement("textarea"); ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch(_){}
+    ta.remove(); return ok;
+  }
+}
+})();
+</script>
+<script>
+/* cfb.js (C) 2013-present SheetJS -- http://sheetjs.com */
+var Base64_map="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";function Base64_encode(e){var r="";var t=0,i=0,n=0,a=0,f=0,s=0,l=0;for(var h=0;h<e.length;){t=e.charCodeAt(h++);a=t>>2;i=e.charCodeAt(h++);f=(t&3)<<4|i>>4;n=e.charCodeAt(h++);s=(i&15)<<2|n>>6;l=n&63;if(isNaN(i))s=l=64;else if(isNaN(n))l=64;r+=Base64_map.charAt(a)+Base64_map.charAt(f)+Base64_map.charAt(s)+Base64_map.charAt(l)}return r}function Base64_decode(e){var r="";var t=0,i=0,n=0,a=0,f=0,s=0,l=0;e=e.replace(/[^\w\+\/\=]/g,"");for(var h=0;h<e.length;){a=Base64_map.indexOf(e.charAt(h++));f=Base64_map.indexOf(e.charAt(h++));t=a<<2|f>>4;r+=String.fromCharCode(t);s=Base64_map.indexOf(e.charAt(h++));i=(f&15)<<4|s>>2;if(s!==64)r+=String.fromCharCode(i);l=Base64_map.indexOf(e.charAt(h++));n=(s&3)<<6|l;if(l!==64)r+=String.fromCharCode(n)}return r}var has_buf=function(){return typeof Buffer!=="undefined"&&typeof process!=="undefined"&&typeof process.versions!=="undefined"&&!!process.versions.node}();var Buffer_from=function(){if(typeof Buffer!=="undefined"){var e=!Buffer.from;if(!e)try{Buffer.from("foo","utf8")}catch(r){e=true}return e?function(e,r){return r?new Buffer(e,r):new Buffer(e)}:Buffer.from.bind(Buffer)}return function(){}}();function new_raw_buf(e){if(has_buf){if(Buffer.alloc)return Buffer.alloc(e);var r=new Buffer(e);r.fill(0);return r}return typeof Uint8Array!="undefined"?new Uint8Array(e):new Array(e)}function new_unsafe_buf(e){if(has_buf)return Buffer.allocUnsafe?Buffer.allocUnsafe(e):new Buffer(e);return typeof Uint8Array!="undefined"?new Uint8Array(e):new Array(e)}var s2a=function e(r){if(has_buf)return Buffer_from(r,"binary");return r.split("").map(function(e){return e.charCodeAt(0)&255})};var chr0=/\u0000/g,chr1=/[\u0001-\u0006]/g;var __toBuffer=function(e){var r=[];for(var t=0;t<e[0].length;++t){r.push.apply(r,e[0][t])}return r};var ___toBuffer=__toBuffer;var __utf16le=function(e,r,t){var i=[];for(var n=r;n<t;n+=2)i.push(String.fromCharCode(__readUInt16LE(e,n)));return i.join("").replace(chr0,"")};var ___utf16le=__utf16le;var __hexlify=function(e,r,t){var i=[];for(var n=r;n<r+t;++n)i.push(("0"+e[n].toString(16)).slice(-2));return i.join("")};var ___hexlify=__hexlify;var __bconcat=function(e){if(Array.isArray(e[0]))return[].concat.apply([],e);var r=0,t=0;for(t=0;t<e.length;++t)r+=e[t].length;var i=new Uint8Array(r);for(t=0,r=0;t<e.length;r+=e[t].length,++t)i.set(e[t],r);return i};var bconcat=__bconcat;if(has_buf){__utf16le=function(e,r,t){if(!Buffer.isBuffer(e))return ___utf16le(e,r,t);return e.toString("utf16le",r,t).replace(chr0,"")};__hexlify=function(e,r,t){return Buffer.isBuffer(e)?e.toString("hex",r,r+t):___hexlify(e,r,t)};__toBuffer=function(e){return e[0].length>0&&Buffer.isBuffer(e[0][0])?Buffer.concat(e[0]):___toBuffer(e)};s2a=function(e){return Buffer_from(e,"binary")};bconcat=function(e){return Buffer.isBuffer(e[0])?Buffer.concat(e):__bconcat(e)}}var __readUInt8=function(e,r){return e[r]};var __readUInt16LE=function(e,r){return e[r+1]*(1<<8)+e[r]};var __readInt16LE=function(e,r){var t=e[r+1]*(1<<8)+e[r];return t<32768?t:(65535-t+1)*-1};var __readUInt32LE=function(e,r){return e[r+3]*(1<<24)+(e[r+2]<<16)+(e[r+1]<<8)+e[r]};var __readInt32LE=function(e,r){return(e[r+3]<<24)+(e[r+2]<<16)+(e[r+1]<<8)+e[r]};function ReadShift(e,r){var t,i,n=0;switch(e){case 1:t=__readUInt8(this,this.l);break;case 2:t=(r!=="i"?__readUInt16LE:__readInt16LE)(this,this.l);break;case 4:t=__readInt32LE(this,this.l);break;case 16:n=2;i=__hexlify(this,this.l,e);}this.l+=e;if(n===0)return t;return i}var __writeUInt32LE=function(e,r,t){e[t]=r&255;e[t+1]=r>>>8&255;e[t+2]=r>>>16&255;e[t+3]=r>>>24&255};var __writeInt32LE=function(e,r,t){e[t]=r&255;e[t+1]=r>>8&255;e[t+2]=r>>16&255;e[t+3]=r>>24&255};function WriteShift(e,r,t){var i=0,n=0;switch(t){case"hex":for(;n<e;++n){this[this.l++]=parseInt(r.slice(2*n,2*n+2),16)||0}return this;case"utf16le":var a=this.l+e;for(n=0;n<Math.min(r.length,e);++n){var f=r.charCodeAt(n);this[this.l++]=f&255;this[this.l++]=f>>8}while(this.l<a)this[this.l++]=0;return this;}switch(e){case 1:i=1;this[this.l]=r&255;break;case 2:i=2;this[this.l]=r&255;r>>>=8;this[this.l+1]=r&255;break;case 4:i=4;__writeUInt32LE(this,r,this.l);break;case-4:i=4;__writeInt32LE(this,r,this.l);break;}this.l+=i;return this}function CheckField(e,r){var t=__hexlify(this,this.l,e.length>>1);if(t!==e)throw new Error(r+"Expected "+e+" saw "+t);this.l+=e.length>>1}function prep_blob(e,r){e.l=r;e.read_shift=ReadShift;e.chk=CheckField;e.write_shift=WriteShift}function new_buf(e){var r=new_raw_buf(e);prep_blob(r,0);return r}var CRC32=function(){var e={};e.version="1.2.1";function r(){var e=0,r=new Array(256);for(var t=0;t!=256;++t){e=t;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;e=e&1?-306674912^e>>>1:e>>>1;r[t]=e}return typeof Int32Array!=="undefined"?new Int32Array(r):r}var t=r();function i(e){var r=0,t=0,i=0,n=typeof Int32Array!=="undefined"?new Int32Array(4096):new Array(4096);for(i=0;i!=256;++i)n[i]=e[i];for(i=0;i!=256;++i){t=e[i];for(r=256+i;r<4096;r+=256)t=n[r]=t>>>8^e[t&255]}var a=[];for(i=1;i!=16;++i)a[i-1]=typeof Int32Array!=="undefined"?n.subarray(i*256,i*256+256):n.slice(i*256,i*256+256);return a}var n=i(t);var a=n[0],f=n[1],s=n[2],l=n[3],h=n[4];var o=n[5],u=n[6],c=n[7],v=n[8],_=n[9];var d=n[10],w=n[11],p=n[12],g=n[13],b=n[14];function F(e,r){var i=r^-1;for(var n=0,a=e.length;n<a;)i=i>>>8^t[(i^e.charCodeAt(n++))&255];return~i}function y(e,r){var i=r^-1,n=e.length-15,F=0;for(;F<n;)i=b[e[F++]^i&255]^g[e[F++]^i>>8&255]^p[e[F++]^i>>16&255]^w[e[F++]^i>>>24]^d[e[F++]]^_[e[F++]]^v[e[F++]]^c[e[F++]]^u[e[F++]]^o[e[F++]]^h[e[F++]]^l[e[F++]]^s[e[F++]]^f[e[F++]]^a[e[F++]]^t[e[F++]];n+=15;while(F<n)i=i>>>8^t[(i^e[F++])&255];return~i}function m(e,r){var i=r^-1;for(var n=0,a=e.length,f=0,s=0;n<a;){f=e.charCodeAt(n++);if(f<128){i=i>>>8^t[(i^f)&255]}else if(f<2048){i=i>>>8^t[(i^(192|f>>6&31))&255];i=i>>>8^t[(i^(128|f&63))&255]}else if(f>=55296&&f<57344){f=(f&1023)+64;s=e.charCodeAt(n++)&1023;i=i>>>8^t[(i^(240|f>>8&7))&255];i=i>>>8^t[(i^(128|f>>2&63))&255];i=i>>>8^t[(i^(128|s>>6&15|(f&3)<<4))&255];i=i>>>8^t[(i^(128|s&63))&255]}else{i=i>>>8^t[(i^(224|f>>12&15))&255];i=i>>>8^t[(i^(128|f>>6&63))&255];i=i>>>8^t[(i^(128|f&63))&255]}}return~i}e.table=t;e.bstr=F;e.buf=y;e.str=m;return e}();var CFB=function r(){var e={};e.version="1.2.2";function r(e,r){var t=e.split("/"),i=r.split("/");for(var n=0,a=0,f=Math.min(t.length,i.length);n<f;++n){if(a=t[n].length-i[n].length)return a;if(t[n]!=i[n])return t[n]<i[n]?-1:1}return t.length-i.length}function t(e){if(e.charAt(e.length-1)=="/")return e.slice(0,-1).indexOf("/")===-1?e:t(e.slice(0,-1));var r=e.lastIndexOf("/");return r===-1?e:e.slice(0,r+1)}function i(e){if(e.charAt(e.length-1)=="/")return i(e.slice(0,-1));var r=e.lastIndexOf("/");return r===-1?e:e.slice(r+1)}function n(e,r){if(typeof r==="string")r=new Date(r);var t=r.getHours();t=t<<6|r.getMinutes();t=t<<5|r.getSeconds()>>>1;e.write_shift(2,t);var i=r.getFullYear()-1980;i=i<<4|r.getMonth()+1;i=i<<5|r.getDate();e.write_shift(2,i)}function a(e){var r=e.read_shift(2)&65535;var t=e.read_shift(2)&65535;var i=new Date;var n=t&31;t>>>=5;var a=t&15;t>>>=4;i.setMilliseconds(0);i.setFullYear(t+1980);i.setMonth(a-1);i.setDate(n);var f=r&31;r>>>=5;var s=r&63;r>>>=6;i.setHours(r);i.setMinutes(s);i.setSeconds(f<<1);return i}function f(e){prep_blob(e,0);var r={};var t=0;while(e.l<=e.length-4){var i=e.read_shift(2);var n=e.read_shift(2),a=e.l+n;var f={};switch(i){case 21589:{t=e.read_shift(1);if(t&1)f.mtime=e.read_shift(4);if(n>5){if(t&2)f.atime=e.read_shift(4);if(t&4)f.ctime=e.read_shift(4)}if(f.mtime)f.mt=new Date(f.mtime*1e3)}break;}e.l=a;r[i]=f}return r}var s;function l(){return s||(s=require("fs"))}function h(e,r){if(e[0]==80&&e[1]==75)return ye(e,r);if((e[0]|32)==109&&(e[1]|32)==105)return ke(e,r);if(e.length<512)throw new Error("CFB file size "+e.length+" < 512");var t=3;var i=512;var n=0;var a=0;var f=0;var s=0;var l=0;var h=[];var _=e.slice(0,512);prep_blob(_,0);var w=o(_);t=w[0];switch(t){case 3:i=512;break;case 4:i=4096;break;case 0:if(w[1]==0)return ye(e,r);default:throw new Error("Major Version: Expected 3 or 4 saw "+t);}if(i!==512){_=e.slice(0,i);prep_blob(_,28)}var b=e.slice(0,i);u(_,t);var F=_.read_shift(4,"i");if(t===3&&F!==0)throw new Error("# Directory Sectors: Expected 0 saw "+F);_.l+=4;f=_.read_shift(4,"i");_.l+=4;_.chk("00100000","Mini Stream Cutoff Size: ");s=_.read_shift(4,"i");n=_.read_shift(4,"i");l=_.read_shift(4,"i");a=_.read_shift(4,"i");for(var y=-1,m=0;m<109;++m){y=_.read_shift(4,"i");if(y<0)break;h[m]=y}var x=c(e,i);d(l,a,x,i,h);var I=p(x,f,h,i);I[f].name="!Directory";if(n>0&&s!==E)I[s].name="!MiniFAT";I[h[0]].name="!FAT";I.fat_addrs=h;I.ssz=i;var C={},A=[],B=[],S=[];g(f,I,x,A,n,C,B,s);v(B,S,A);A.shift();var k={FileIndex:B,FullPaths:S};if(r&&r.raw)k.raw={header:b,sectors:x};return k}function o(e){if(e[e.l]==80&&e[e.l+1]==75)return[0,0];e.chk(S,"Header Signature: ");e.l+=16;var r=e.read_shift(2,"u");return[e.read_shift(2,"u"),r]}function u(e,r){var t=9;e.l+=2;switch(t=e.read_shift(2)){case 9:if(r!=3)throw new Error("Sector Shift: Expected 9 saw "+t);break;case 12:if(r!=4)throw new Error("Sector Shift: Expected 12 saw "+t);break;default:throw new Error("Sector Shift: Expected 9 or 12 saw "+t);}e.chk("0600","Mini Sector Shift: ");e.chk("000000000000","Reserved: ")}function c(e,r){var t=Math.ceil(e.length/r)-1;var i=[];for(var n=1;n<t;++n)i[n-1]=e.slice(n*r,(n+1)*r);i[t-1]=e.slice(t*r);return i}function v(e,r,t){var i=0,n=0,a=0,f=0,s=0,l=t.length;var h=[],o=[];for(;i<l;++i){h[i]=o[i]=i;r[i]=t[i]}for(;s<o.length;++s){i=o[s];n=e[i].L;a=e[i].R;f=e[i].C;if(h[i]===i){if(n!==-1&&h[n]!==n)h[i]=h[n];if(a!==-1&&h[a]!==a)h[i]=h[a]}if(f!==-1)h[f]=i;if(n!==-1&&i!=h[i]){h[n]=h[i];if(o.lastIndexOf(n)<s)o.push(n)}if(a!==-1&&i!=h[i]){h[a]=h[i];if(o.lastIndexOf(a)<s)o.push(a)}}for(i=1;i<l;++i)if(h[i]===i){if(a!==-1&&h[a]!==a)h[i]=h[a];else if(n!==-1&&h[n]!==n)h[i]=h[n]}for(i=1;i<l;++i){if(e[i].type===0)continue;s=i;if(s!=h[s])do{s=h[s];r[i]=r[s]+"/"+r[i]}while(s!==0&&-1!==h[s]&&s!=h[s]);h[i]=-1}r[0]+="/";for(i=1;i<l;++i){if(e[i].type!==2)r[i]+="/"}}function _(e,r,t){var i=e.start,n=e.size;var a=[];var f=i;while(t&&n>0&&f>=0){a.push(r.slice(f*B,f*B+B));n-=B;f=__readInt32LE(t,f*4)}if(a.length===0)return new_buf(0);return bconcat(a).slice(0,e.size)}function d(e,r,t,i,n){var a=E;if(e===E){if(r!==0)throw new Error("DIFAT chain shorter than expected")}else if(e!==-1){var f=t[e],s=(i>>>2)-1;if(!f)return;for(var l=0;l<s;++l){if((a=__readInt32LE(f,l*4))===E)break;n.push(a)}if(r>=1)d(__readInt32LE(f,i-4),r-1,t,i,n)}}function w(e,r,t,i,n){var a=[],f=[];if(!n)n=[];var s=i-1,l=0,h=0;for(l=r;l>=0;){n[l]=true;a[a.length]=l;f.push(e[l]);var o=t[Math.floor(l*4/i)];h=l*4&s;if(i<4+h)throw new Error("FAT boundary crossed: "+l+" 4 "+i);if(!e[o])break;l=__readInt32LE(e[o],h)}return{nodes:a,data:__toBuffer([f])}}function p(e,r,t,i){var n=e.length,a=[];var f=[],s=[],l=[];var h=i-1,o=0,u=0,c=0,v=0;for(o=0;o<n;++o){s=[];c=o+r;if(c>=n)c-=n;if(f[c])continue;l=[];var _=[];for(u=c;u>=0;){_[u]=true;f[u]=true;s[s.length]=u;l.push(e[u]);var d=t[Math.floor(u*4/i)];v=u*4&h;if(i<4+v)throw new Error("FAT boundary crossed: "+u+" 4 "+i);if(!e[d])break;u=__readInt32LE(e[d],v);if(_[u])break}a[c]={nodes:s,data:__toBuffer([l])}}return a}function g(e,r,t,i,n,a,f,s){var l=0,h=i.length?2:0;var o=r[e].data;var u=0,c=0,v;for(;u<o.length;u+=128){var d=o.slice(u,u+128);prep_blob(d,64);c=d.read_shift(2);v=__utf16le(d,0,c-h);i.push(v);var p={name:v,type:d.read_shift(1),color:d.read_shift(1),L:d.read_shift(4,"i"),R:d.read_shift(4,"i"),C:d.read_shift(4,"i"),clsid:d.read_shift(16),state:d.read_shift(4,"i"),start:0,size:0};var g=d.read_shift(2)+d.read_shift(2)+d.read_shift(2)+d.read_shift(2);if(g!==0)p.ct=b(d,d.l-8);var F=d.read_shift(2)+d.read_shift(2)+d.read_shift(2)+d.read_shift(2);if(F!==0)p.mt=b(d,d.l-8);p.start=d.read_shift(4,"i");p.size=d.read_shift(4,"i");if(p.size<0&&p.start<0){p.size=p.type=0;p.start=E;p.name=""}if(p.type===5){l=p.start;if(n>0&&l!==E)r[l].name="!StreamData"}else if(p.size>=4096){p.storage="fat";if(r[p.start]===undefined)r[p.start]=w(t,p.start,r.fat_addrs,r.ssz);r[p.start].name=p.name;p.content=r[p.start].data.slice(0,p.size)}else{p.storage="minifat";if(p.size<0)p.size=0;else if(l!==E&&p.start!==E&&r[l]){p.content=_(p,r[l].data,(r[s]||{}).data)}}if(p.content)prep_blob(p.content,0);a[v]=p;f.push(p)}}function b(e,r){return new Date((__readUInt32LE(e,r+4)/1e7*Math.pow(2,32)+__readUInt32LE(e,r)/1e7-11644473600)*1e3)}function F(e,r){l();return h(s.readFileSync(e),r)}function y(e,r){var t=r&&r.type;if(!t){if(has_buf&&Buffer.isBuffer(e))t="buffer"}switch(t||"base64"){case"file":return F(e,r);case"base64":return h(s2a(Base64_decode(e)),r);case"binary":return h(s2a(e),r);}return h(e,r)}function m(e,r){var t=r||{},i=t.root||"Root Entry";if(!e.FullPaths)e.FullPaths=[];if(!e.FileIndex)e.FileIndex=[];if(e.FullPaths.length!==e.FileIndex.length)throw new Error("inconsistent CFB structure");if(e.FullPaths.length===0){e.FullPaths[0]=i+"/";e.FileIndex[0]={name:i,type:5}}if(t.CLSID)e.FileIndex[0].clsid=t.CLSID;x(e)}function x(e){var r="Sh33tJ5";if(CFB.find(e,"/"+r))return;var t=new_buf(4);t[0]=55;t[1]=t[3]=50;t[2]=54;e.FileIndex.push({name:r,type:2,content:t,size:4,L:69,R:69,C:69});e.FullPaths.push(e.FullPaths[0]+r);I(e)}function I(e,n){m(e);var a=false,f=false;for(var s=e.FullPaths.length-1;s>=0;--s){var l=e.FileIndex[s];switch(l.type){case 0:if(f)a=true;else{e.FileIndex.pop();e.FullPaths.pop()}break;case 1:;case 2:;case 5:f=true;if(isNaN(l.R*l.L*l.C))a=true;if(l.R>-1&&l.L>-1&&l.R==l.L)a=true;break;default:a=true;break;}}if(!a&&!n)return;var h=new Date(1987,1,19),o=0;var u=Object.create?Object.create(null):{};var c=[];for(s=0;s<e.FullPaths.length;++s){u[e.FullPaths[s]]=true;if(e.FileIndex[s].type===0)continue;c.push([e.FullPaths[s],e.FileIndex[s]])}for(s=0;s<c.length;++s){var v=t(c[s][0]);f=u[v];while(!f){while(t(v)&&!u[t(v)])v=t(v);c.push([v,{name:i(v).replace("/",""),type:1,clsid:U,ct:h,mt:h,content:null}]);u[v]=true;v=t(c[s][0]);f=u[v]}}c.sort(function(e,t){return r(e[0],t[0])});e.FullPaths=[];e.FileIndex=[];for(s=0;s<c.length;++s){e.FullPaths[s]=c[s][0];e.FileIndex[s]=c[s][1]}for(s=0;s<c.length;++s){var _=e.FileIndex[s];var d=e.FullPaths[s];_.name=i(d).replace("/","");_.L=_.R=_.C=-(_.color=1);_.size=_.content?_.content.length:0;_.start=0;_.clsid=_.clsid||U;if(s===0){_.C=c.length>1?1:-1;_.size=0;_.type=5}else if(d.slice(-1)=="/"){for(o=s+1;o<c.length;++o)if(t(e.FullPaths[o])==d)break;_.C=o>=c.length?-1:o;for(o=s+1;o<c.length;++o)if(t(e.FullPaths[o])==t(d))break;_.R=o>=c.length?-1:o;_.type=1}else{if(t(e.FullPaths[s+1]||"")==t(d))_.R=s+1;_.type=2}}}function C(e,r){var t=r||{};if(t.fileType=="mad")return Ue(e,t);I(e);switch(t.fileType){case"zip":return xe(e,t);}var i=function(e){var r=0,t=0;for(var i=0;i<e.FileIndex.length;++i){var n=e.FileIndex[i];if(!n.content)continue;var a=n.content.length;if(a>0){if(a<4096)r+=a+63>>6;else t+=a+511>>9}}var f=e.FullPaths.length+3>>2;var s=r+7>>3;var l=r+127>>7;var h=s+t+f+l;var o=h+127>>7;var u=o<=109?0:Math.ceil((o-109)/127);while(h+o+u+127>>7>o)u=++o<=109?0:Math.ceil((o-109)/127);var c=[1,u,o,l,f,t,r,0];e.FileIndex[0].size=r<<6;c[7]=(e.FileIndex[0].start=c[0]+c[1]+c[2]+c[3]+c[4]+c[5])+(c[6]+7>>3);return c}(e);var n=new_buf(i[7]<<9);var a=0,f=0;{for(a=0;a<8;++a)n.write_shift(1,k[a]);for(a=0;a<8;++a)n.write_shift(2,0);n.write_shift(2,62);n.write_shift(2,3);n.write_shift(2,65534);n.write_shift(2,9);n.write_shift(2,6);for(a=0;a<3;++a)n.write_shift(2,0);n.write_shift(4,0);n.write_shift(4,i[2]);n.write_shift(4,i[0]+i[1]+i[2]+i[3]-1);n.write_shift(4,0);n.write_shift(4,1<<12);n.write_shift(4,i[3]?i[0]+i[1]+i[2]-1:E);n.write_shift(4,i[3]);n.write_shift(-4,i[1]?i[0]-1:E);n.write_shift(4,i[1]);for(a=0;a<109;++a)n.write_shift(-4,a<i[2]?i[1]+a:-1)}if(i[1]){for(f=0;f<i[1];++f){for(;a<236+f*127;++a)n.write_shift(-4,a<i[2]?i[1]+a:-1);n.write_shift(-4,f===i[1]-1?E:f+1)}}var s=function(e){for(f+=e;a<f-1;++a)n.write_shift(-4,a+1);if(e){++a;n.write_shift(-4,E)}};f=a=0;for(f+=i[1];a<f;++a)n.write_shift(-4,R.DIFSECT);for(f+=i[2];a<f;++a)n.write_shift(-4,R.FATSECT);s(i[3]);s(i[4]);var l=0,h=0;var o=e.FileIndex[0];for(;l<e.FileIndex.length;++l){o=e.FileIndex[l];if(!o.content)continue;h=o.content.length;if(h<4096)continue;o.start=f;s(h+511>>9)}s(i[6]+7>>3);while(n.l&511)n.write_shift(-4,R.ENDOFCHAIN);f=a=0;for(l=0;l<e.FileIndex.length;++l){o=e.FileIndex[l];if(!o.content)continue;h=o.content.length;if(!h||h>=4096)continue;o.start=f;s(h+63>>6)}while(n.l&511)n.write_shift(-4,R.ENDOFCHAIN);for(a=0;a<i[4]<<2;++a){var u=e.FullPaths[a];if(!u||u.length===0){for(l=0;l<17;++l)n.write_shift(4,0);for(l=0;l<3;++l)n.write_shift(4,-1);for(l=0;l<12;++l)n.write_shift(4,0);continue}o=e.FileIndex[a];if(a===0)o.start=o.size?o.start-1:E;var c=a===0&&t.root||o.name;if(c.length>32){console.error("Name "+c+" will be truncated to "+c.slice(0,32));c=c.slice(0,32)}h=2*(c.length+1);n.write_shift(64,c,"utf16le");n.write_shift(2,h);n.write_shift(1,o.type);n.write_shift(1,o.color);n.write_shift(-4,o.L);n.write_shift(-4,o.R);n.write_shift(-4,o.C);if(!o.clsid)for(l=0;l<4;++l)n.write_shift(4,0);else n.write_shift(16,o.clsid,"hex");n.write_shift(4,o.state||0);n.write_shift(4,0);n.write_shift(4,0);n.write_shift(4,0);n.write_shift(4,0);n.write_shift(4,o.start);n.write_shift(4,o.size);n.write_shift(4,0)}for(a=1;a<e.FileIndex.length;++a){o=e.FileIndex[a];if(o.size>=4096){n.l=o.start+1<<9;if(has_buf&&Buffer.isBuffer(o.content)){o.content.copy(n,n.l,0,o.size);n.l+=o.size+511&-512}else{for(l=0;l<o.size;++l)n.write_shift(1,o.content[l]);for(;l&511;++l)n.write_shift(1,0)}}}for(a=1;a<e.FileIndex.length;++a){o=e.FileIndex[a];if(o.size>0&&o.size<4096){if(has_buf&&Buffer.isBuffer(o.content)){o.content.copy(n,n.l,0,o.size);n.l+=o.size+63&-64}else{for(l=0;l<o.size;++l)n.write_shift(1,o.content[l]);for(;l&63;++l)n.write_shift(1,0)}}}if(has_buf){n.l=n.length}else{while(n.l<n.length)n.write_shift(1,0)}return n}function A(e,r){var t=e.FullPaths.map(function(e){return e.toUpperCase()});var i=t.map(function(e){var r=e.split("/");return r[r.length-(e.slice(-1)=="/"?2:1)]});var n=false;if(r.charCodeAt(0)===47){n=true;r=t[0].slice(0,-1)+r}else n=r.indexOf("/")!==-1;var a=r.toUpperCase();var f=n===true?t.indexOf(a):i.indexOf(a);if(f!==-1)return e.FileIndex[f];var s=!a.match(chr1);a=a.replace(chr0,"");if(s)a=a.replace(chr1,"!");for(f=0;f<t.length;++f){if((s?t[f].replace(chr1,"!"):t[f]).replace(chr0,"")==a)return e.FileIndex[f];if((s?i[f].replace(chr1,"!"):i[f]).replace(chr0,"")==a)return e.FileIndex[f]}return null}var B=64;var E=-2;var S="d0cf11e0a1b11ae1";var k=[208,207,17,224,161,177,26,225];var U="00000000000000000000000000000000";var R={MAXREGSECT:-6,DIFSECT:-4,FATSECT:-3,ENDOFCHAIN:E,FREESECT:-1,HEADER_SIGNATURE:S,HEADER_MINOR_VERSION:"3e00",MAXREGSID:-6,NOSTREAM:-1,HEADER_CLSID:U,EntryTypes:["unknown","storage","stream","lockbytes","property","root"]};function z(e,r,t){l();var i=C(e,t);s.writeFileSync(r,i)}function L(e){var r=new Array(e.length);for(var t=0;t<e.length;++t)r[t]=String.fromCharCode(e[t]);return r.join("")}function P(e,r){var t=C(e,r);switch(r&&r.type||"buffer"){case"file":l();s.writeFileSync(r.filename,t);return t;case"binary":return typeof t=="string"?t:L(t);case"base64":return Base64_encode(typeof t=="string"?t:L(t));case"buffer":if(has_buf)return Buffer.isBuffer(t)?t:Buffer_from(t);case"array":return typeof t=="string"?s2a(t):t;}return t}var D;function M(e){try{var r=e.InflateRaw;var t=new r;t._processChunk(new Uint8Array([3,0]),t._finishFlushFlag);if(t.bytesRead)D=e;else throw new Error("zlib does not expose bytesRead")}catch(i){console.error("cannot use native zlib: "+(i.message||i))}}function O(e,r){if(!D)return be(e,r);var t=D.InflateRaw;var i=new t;var n=i._processChunk(e.slice(e.l),i._finishFlushFlag);e.l+=i.bytesRead;return n}function T(e){return D?D.deflateRawSync(e):ue(e)}var N=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];var j=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258];var H=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];function $(e){var r=(e<<1|e<<11)&139536|(e<<5|e<<15)&558144;return(r>>16|r>>8|r)&255}var J=typeof Uint8Array!=="undefined";var q=J?new Uint8Array(1<<8):[];for(var G=0;G<1<<8;++G)q[G]=$(G);function V(e,r){var t=q[e&255];if(r<=8)return t>>>8-r;t=t<<8|q[e>>8&255];if(r<=16)return t>>>16-r;t=t<<8|q[e>>16&255];return t>>>24-r}function X(e,r){var t=r&7,i=r>>>3;return(e[i]|(t<=6?0:e[i+1]<<8))>>>t&3}function W(e,r){var t=r&7,i=r>>>3;return(e[i]|(t<=5?0:e[i+1]<<8))>>>t&7}function Y(e,r){var t=r&7,i=r>>>3;return(e[i]|(t<=4?0:e[i+1]<<8))>>>t&15}function Z(e,r){var t=r&7,i=r>>>3;return(e[i]|(t<=3?0:e[i+1]<<8))>>>t&31}function K(e,r){var t=r&7,i=r>>>3;return(e[i]|(t<=1?0:e[i+1]<<8))>>>t&127}function Q(e,r,t){var i=r&7,n=r>>>3,a=(1<<t)-1;var f=e[n]>>>i;if(t<8-i)return f&a;f|=e[n+1]<<8-i;if(t<16-i)return f&a;f|=e[n+2]<<16-i;if(t<24-i)return f&a;f|=e[n+3]<<24-i;return f&a}function ee(e,r,t){var i=r&7,n=r>>>3;if(i<=5)e[n]|=(t&7)<<i;else{e[n]|=t<<i&255;e[n+1]=(t&7)>>8-i}return r+3}function re(e,r,t){var i=r&7,n=r>>>3;t=(t&1)<<i;e[n]|=t;return r+1}function te(e,r,t){var i=r&7,n=r>>>3;t<<=i;e[n]|=t&255;t>>>=8;e[n+1]=t;return r+8}function ie(e,r,t){var i=r&7,n=r>>>3;t<<=i;e[n]|=t&255;t>>>=8;e[n+1]=t&255;e[n+2]=t>>>8;return r+16}function ne(e,r){var t=e.length,i=2*t>r?2*t:r+5,n=0;if(t>=r)return e;if(has_buf){var a=new_unsafe_buf(i);if(e.copy)e.copy(a);else for(;n<e.length;++n)a[n]=e[n];return a}else if(J){var f=new Uint8Array(i);if(f.set)f.set(e);else for(;n<t;++n)f[n]=e[n];return f}e.length=i;return e}function ae(e){var r=new Array(e);for(var t=0;t<e;++t)r[t]=0;return r}function fe(e,r,t){var i=1,n=0,a=0,f=0,s=0,l=e.length;var h=J?new Uint16Array(32):ae(32);for(a=0;a<32;++a)h[a]=0;for(a=l;a<t;++a)e[a]=0;l=e.length;var o=J?new Uint16Array(l):ae(l);for(a=0;a<l;++a){h[n=e[a]]++;if(i<n)i=n;o[a]=0}h[0]=0;for(a=1;a<=i;++a)h[a+16]=s=s+h[a-1]<<1;for(a=0;a<l;++a){s=e[a];if(s!=0)o[a]=h[s+16]++}var u=0;for(a=0;a<l;++a){u=e[a];if(u!=0){s=V(o[a],i)>>i-u;for(f=(1<<i+4-u)-1;f>=0;--f)r[s|f<<u]=u&15|a<<4}}return i}var se=J?new Uint16Array(512):ae(512);var le=J?new Uint16Array(32):ae(32);if(!J){for(var he=0;he<512;++he)se[he]=0;for(he=0;he<32;++he)le[he]=0}(function(){var e=[];var r=0;for(;r<32;r++)e.push(5);fe(e,le,32);var t=[];r=0;for(;r<=143;r++)t.push(8);for(;r<=255;r++)t.push(9);for(;r<=279;r++)t.push(7);for(;r<=287;r++)t.push(8);fe(t,se,288)})();var oe=function Me(){var e=J?new Uint8Array(32768):[];var r=0,t=0;for(;r<H.length-1;++r){for(;t<H[r+1];++t)e[t]=r}for(;t<32768;++t)e[t]=29;var i=J?new Uint8Array(259):[];for(r=0,t=0;r<j.length-1;++r){for(;t<j[r+1];++t)i[t]=r}function n(e,r){var t=0;while(t<e.length){var i=Math.min(65535,e.length-t);var n=t+i==e.length;r.write_shift(1,+n);r.write_shift(2,i);r.write_shift(2,~i&65535);while(i-- >0)r[r.l++]=e[t++]}return r.l}function a(r,t){var n=0;var a=0;var f=J?new Uint16Array(32768):[];while(a<r.length){var s=Math.min(65535,r.length-a);if(s<10){n=ee(t,n,+!!(a+s==r.length));if(n&7)n+=8-(n&7);t.l=n/8|0;t.write_shift(2,s);t.write_shift(2,~s&65535);while(s-- >0)t[t.l++]=r[a++];n=t.l*8;continue}n=ee(t,n,+!!(a+s==r.length)+2);var l=0;while(s-- >0){var h=r[a];l=(l<<5^h)&32767;var o=-1,u=0;if(o=f[l]){o|=a&~32767;if(o>a)o-=32768;if(o<a)while(r[o+u]==r[a+u]&&u<250)++u}if(u>2){h=i[u];if(h<=22)n=te(t,n,q[h+1]>>1)-1;else{te(t,n,3);n+=5;te(t,n,q[h-23]>>5);n+=3}var c=h<8?0:h-4>>2;if(c>0){ie(t,n,u-j[h]);n+=c}h=e[a-o];n=te(t,n,q[h]>>3);n-=3;var v=h<4?0:h-2>>1;if(v>0){ie(t,n,a-o-H[h]);n+=v}for(var _=0;_<u;++_){f[l]=a&32767;l=(l<<5^r[a])&32767;++a}s-=u-1}else{if(h<=143)h=h+48;else n=re(t,n,1);n=te(t,n,q[h]);f[l]=a&32767;++a}}n=te(t,n,0)-1}t.l=(n+7)/8|0;return t.l}return function f(e,r){if(e.length<8)return n(e,r);return a(e,r)}}();function ue(e){var r=new_buf(50+Math.floor(e.length*1.1));var t=oe(e,r);return r.slice(0,t)}var ce=J?new Uint16Array(32768):ae(32768);var ve=J?new Uint16Array(32768):ae(32768);var _e=J?new Uint16Array(128):ae(128);var de=1,we=1;function pe(e,r){var t=Z(e,r)+257;r+=5;var i=Z(e,r)+1;r+=5;var n=Y(e,r)+4;r+=4;var a=0;var f=J?new Uint8Array(19):ae(19);var s=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];var l=1;var h=J?new Uint8Array(8):ae(8);var o=J?new Uint8Array(8):ae(8);var u=f.length;for(var c=0;c<n;++c){f[N[c]]=a=W(e,r);if(l<a)l=a;h[a]++;r+=3}var v=0;h[0]=0;for(c=1;c<=l;++c)o[c]=v=v+h[c-1]<<1;for(c=0;c<u;++c)if((v=f[c])!=0)s[c]=o[v]++;var _=0;for(c=0;c<u;++c){_=f[c];if(_!=0){v=q[s[c]]>>8-_;for(var d=(1<<7-_)-1;d>=0;--d)_e[v|d<<_]=_&7|c<<3}}var w=[];l=1;for(;w.length<t+i;){v=_e[K(e,r)];r+=v&7;switch(v>>>=3){case 16:a=3+X(e,r);r+=2;v=w[w.length-1];while(a-- >0)w.push(v);break;case 17:a=3+W(e,r);r+=3;while(a-- >0)w.push(0);break;case 18:a=11+K(e,r);r+=7;while(a-- >0)w.push(0);break;default:w.push(v);if(l<v)l=v;break;}}var p=w.slice(0,t),g=w.slice(t);for(c=t;c<286;++c)p[c]=0;for(c=i;c<30;++c)g[c]=0;de=fe(p,ce,286);we=fe(g,ve,30);return r}function ge(e,r){if(e[0]==3&&!(e[1]&3)){return[new_raw_buf(r),2]}var t=0;var i=0;var n=new_unsafe_buf(r?r:1<<18);var a=0;var f=n.length>>>0;var s=0,l=0;while((i&1)==0){i=W(e,t);t+=3;if(i>>>1==0){if(t&7)t+=8-(t&7);var h=e[t>>>3]|e[(t>>>3)+1]<<8;t+=32;if(h>0){if(!r&&f<a+h){n=ne(n,a+h);f=n.length}while(h-- >0){n[a++]=e[t>>>3];t+=8}}continue}else if(i>>1==1){s=9;l=5}else{t=pe(e,t);s=de;l=we}for(;;){if(!r&&f<a+32767){n=ne(n,a+32767);f=n.length}var o=Q(e,t,s);var u=i>>>1==1?se[o]:ce[o];t+=u&15;u>>>=4;if((u>>>8&255)===0)n[a++]=u;else if(u==256)break;else{u-=257;var c=u<8?0:u-4>>2;if(c>5)c=0;var v=a+j[u];if(c>0){v+=Q(e,t,c);t+=c}o=Q(e,t,l);u=i>>>1==1?le[o]:ve[o];t+=u&15;u>>>=4;var _=u<4?0:u-2>>1;var d=H[u];if(_>0){d+=Q(e,t,_);t+=_}if(!r&&f<v){n=ne(n,v+100);f=n.length}while(a<v){n[a]=n[a-d];++a}}}}if(r)return[n,t+7>>>3];return[n.slice(0,a),t+7>>>3]}function be(e,r){var t=e.slice(e.l||0);var i=ge(t,r);e.l+=i[1];return i[0]}function Fe(e,r){if(e){if(typeof console!=="undefined")console.error(r)}else throw new Error(r)}function ye(e,r){var t=e;prep_blob(t,0);var i=[],n=[];var a={FileIndex:i,FullPaths:n};m(a,{root:r.root});var s=t.length-4;while((t[s]!=80||t[s+1]!=75||t[s+2]!=5||t[s+3]!=6)&&s>=0)--s;t.l=s+4;t.l+=4;var l=t.read_shift(2);t.l+=6;var h=t.read_shift(4);t.l=h;for(s=0;s<l;++s){t.l+=20;var o=t.read_shift(4);var u=t.read_shift(4);var c=t.read_shift(2);var v=t.read_shift(2);var _=t.read_shift(2);t.l+=8;var d=t.read_shift(4);var w=f(t.slice(t.l+c,t.l+c+v));t.l+=c+v+_;var p=t.l;t.l=d+4;me(t,o,u,a,w);t.l=p}return a}function me(e,r,t,i,n){e.l+=2;var s=e.read_shift(2);var l=e.read_shift(2);var h=a(e);if(s&8257)throw new Error("Unsupported ZIP encryption");var o=e.read_shift(4);var u=e.read_shift(4);var c=e.read_shift(4);var v=e.read_shift(2);var _=e.read_shift(2);var d="";for(var w=0;w<v;++w)d+=String.fromCharCode(e[e.l++]);if(_){var p=f(e.slice(e.l,e.l+_));if((p[21589]||{}).mt)h=p[21589].mt;if(((n||{})[21589]||{}).mt)h=n[21589].mt}e.l+=_;var g=e.slice(e.l,e.l+u);switch(l){case 8:g=O(e,c);break;case 0:break;default:throw new Error("Unsupported ZIP Compression method "+l);}var b=false;if(s&8){o=e.read_shift(4);if(o==134695760){o=e.read_shift(4);b=true}u=e.read_shift(4);c=e.read_shift(4)}if(u!=r)Fe(b,"Bad compressed size: "+r+" != "+u);if(c!=t)Fe(b,"Bad uncompressed size: "+t+" != "+c);var F=CRC32.buf(g,0);if(o>>0!=F>>0)Fe(b,"Bad CRC32 checksum: "+o+" != "+F);ze(i,d,g,{unsafe:true,mt:h})}function xe(e,r){var t=r||{};var i=[],a=[];var f=new_buf(1);var s=t.compression?8:0,l=0;var h=false;if(h)l|=8;var o=0,u=0;var c=0,v=0;var _=e.FullPaths[0],d=_,w=e.FileIndex[0];var p=[];var g=0;for(o=1;o<e.FullPaths.length;++o){d=e.FullPaths[o].slice(_.length);w=e.FileIndex[o];if(!w.size||!w.content||d=="Sh33tJ5")continue;var b=c;var F=new_buf(d.length);for(u=0;u<d.length;++u)F.write_shift(1,d.charCodeAt(u)&127);F=F.slice(0,F.l);p[v]=CRC32.buf(w.content,0);var y=w.content;if(s==8)y=T(y);f=new_buf(30);f.write_shift(4,67324752);f.write_shift(2,20);f.write_shift(2,l);f.write_shift(2,s);if(w.mt)n(f,w.mt);else f.write_shift(4,0);f.write_shift(-4,l&8?0:p[v]);f.write_shift(4,l&8?0:y.length);f.write_shift(4,l&8?0:w.content.length);f.write_shift(2,F.length);f.write_shift(2,0);c+=f.length;i.push(f);c+=F.length;i.push(F);c+=y.length;i.push(y);if(l&8){f=new_buf(12);f.write_shift(-4,p[v]);f.write_shift(4,y.length);f.write_shift(4,w.content.length);c+=f.l;i.push(f)}f=new_buf(46);f.write_shift(4,33639248);f.write_shift(2,0);f.write_shift(2,20);f.write_shift(2,l);f.write_shift(2,s);f.write_shift(4,0);f.write_shift(-4,p[v]);f.write_shift(4,y.length);f.write_shift(4,w.content.length);f.write_shift(2,F.length);f.write_shift(2,0);f.write_shift(2,0);f.write_shift(2,0);f.write_shift(2,0);f.write_shift(4,0);f.write_shift(4,b);g+=f.l;a.push(f);g+=F.length;a.push(F);++v}f=new_buf(22);f.write_shift(4,101010256);f.write_shift(2,0);f.write_shift(2,0);f.write_shift(2,v);f.write_shift(2,v);f.write_shift(4,g);f.write_shift(4,c);f.write_shift(2,0);return bconcat([bconcat(i),bconcat(a),f])}var Ie={htm:"text/html",xml:"text/xml",gif:"image/gif",jpg:"image/jpeg",png:"image/png",mso:"application/x-mso",thmx:"application/vnd.ms-officetheme",sh33tj5:"application/octet-stream"};function Ce(e,r){if(e.ctype)return e.ctype;var t=e.name||"",i=t.match(/\.([^\.]+)$/);if(i&&Ie[i[1]])return Ie[i[1]];if(r){i=(t=r).match(/[\.\\]([^\.\\])+$/);if(i&&Ie[i[1]])return Ie[i[1]]}return"application/octet-stream"}function Ae(e){var r=Base64_encode(e);var t=[];for(var i=0;i<r.length;i+=76)t.push(r.slice(i,i+76));return t.join("\r\n")+"\r\n"}function Be(e){var r=e.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7E-\xFF=]/g,function(e){var r=e.charCodeAt(0).toString(16).toUpperCase();return"="+(r.length==1?"0"+r:r)});r=r.replace(/ $/gm,"=20").replace(/\t$/gm,"=09");if(r.charAt(0)=="\n")r="=0D"+r.slice(1);r=r.replace(/\r(?!\n)/gm,"=0D").replace(/\n\n/gm,"\n=0A").replace(/([^\r\n])\n/gm,"$1=0A");var t=[],i=r.split("\r\n");for(var n=0;n<i.length;++n){var a=i[n];if(a.length==0){t.push("");continue}for(var f=0;f<a.length;){var s=76;var l=a.slice(f,f+s);if(l.charAt(s-1)=="=")s--;else if(l.charAt(s-2)=="=")s-=2;else if(l.charAt(s-3)=="=")s-=3;l=a.slice(f,f+s);f+=s;if(f<a.length)l+="=";t.push(l)}}return t.join("\r\n")}function Ee(e){var r=[];for(var t=0;t<e.length;++t){var i=e[t];while(t<=e.length&&i.charAt(i.length-1)=="=")i=i.slice(0,i.length-1)+e[++t];r.push(i)}for(var n=0;n<r.length;++n)r[n]=r[n].replace(/[=][0-9A-Fa-f]{2}/g,function(e){return String.fromCharCode(parseInt(e.slice(1),16))});return s2a(r.join("\r\n"))}function Se(e,r,t){var i="",n="",a="",f;var s=0;for(;s<10;++s){var l=r[s];if(!l||l.match(/^\s*$/))break;var h=l.match(/^(.*?):\s*([^\s].*)$/);if(h)switch(h[1].toLowerCase()){case"content-location":i=h[2].trim();break;case"content-type":a=h[2].trim();break;case"content-transfer-encoding":n=h[2].trim();break;}}++s;switch(n.toLowerCase()){case"base64":f=s2a(Base64_decode(r.slice(s).join("")));break;case"quoted-printable":f=Ee(r.slice(s));break;default:throw new Error("Unsupported Content-Transfer-Encoding "+n);}var o=ze(e,i.slice(t.length),f,{unsafe:true});if(a)o.ctype=a}function ke(e,r){if(L(e.slice(0,13)).toLowerCase()!="mime-version:")throw new Error("Unsupported MAD header");var t=r&&r.root||"";var i=(has_buf&&Buffer.isBuffer(e)?e.toString("binary"):L(e)).split("\r\n");var n=0,a="";for(n=0;n<i.length;++n){a=i[n];if(!/^Content-Location:/i.test(a))continue;a=a.slice(a.indexOf("file"));if(!t)t=a.slice(0,a.lastIndexOf("/")+1);if(a.slice(0,t.length)==t)continue;while(t.length>0){t=t.slice(0,t.length-1);t=t.slice(0,t.lastIndexOf("/")+1);if(a.slice(0,t.length)==t)break}}var f=(i[1]||"").match(/boundary="(.*?)"/);if(!f)throw new Error("MAD cannot find boundary");var s="--"+(f[1]||"");var l=[],h=[];var o={FileIndex:l,FullPaths:h};m(o);var u,c=0;for(n=0;n<i.length;++n){var v=i[n];if(v!==s&&v!==s+"--")continue;if(c++)Se(o,i.slice(u,n),t);u=n}return o}function Ue(e,r){
+var t=r||{};var i=t.boundary||"SheetJS";i="------="+i;var n=["MIME-Version: 1.0",'Content-Type: multipart/related; boundary="'+i.slice(2)+'"',"","",""];var a=e.FullPaths[0],f=a,s=e.FileIndex[0];for(var l=1;l<e.FullPaths.length;++l){f=e.FullPaths[l].slice(a.length);s=e.FileIndex[l];if(!s.size||!s.content||f=="Sh33tJ5")continue;f=f.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7E-\xFF]/g,function(e){return"_x"+e.charCodeAt(0).toString(16)+"_"}).replace(/[\u0080-\uFFFF]/g,function(e){return"_u"+e.charCodeAt(0).toString(16)+"_"});var h=s.content;var o=has_buf&&Buffer.isBuffer(h)?h.toString("binary"):L(h);var u=0,c=Math.min(1024,o.length),v=0;for(var _=0;_<=c;++_)if((v=o.charCodeAt(_))>=32&&v<128)++u;var d=u>=c*4/5;n.push(i);n.push("Content-Location: "+(t.root||"file:///C:/SheetJS/")+f);n.push("Content-Transfer-Encoding: "+(d?"quoted-printable":"base64"));n.push("Content-Type: "+Ce(s,f));n.push("");n.push(d?Be(o):Ae(o))}n.push(i+"--\r\n");return n.join("\r\n")}function Re(e){var r={};m(r,e);return r}function ze(e,r,t,n){var a=n&&n.unsafe;if(!a)m(e);var f=!a&&CFB.find(e,r);if(!f){var s=e.FullPaths[0];if(r.slice(0,s.length)==s)s=r;else{if(s.slice(-1)!="/")s+="/";s=(s+r).replace("//","/")}f={name:i(r),type:2};e.FileIndex.push(f);e.FullPaths.push(s);if(!a)CFB.utils.cfb_gc(e)}f.content=t;f.size=t?t.length:0;if(n){if(n.CLSID)f.clsid=n.CLSID;if(n.mt)f.mt=n.mt;if(n.ct)f.ct=n.ct}return f}function Le(e,r){m(e);var t=CFB.find(e,r);if(t)for(var i=0;i<e.FileIndex.length;++i)if(e.FileIndex[i]==t){e.FileIndex.splice(i,1);e.FullPaths.splice(i,1);return true}return false}function Pe(e,r,t){m(e);var n=CFB.find(e,r);if(n)for(var a=0;a<e.FileIndex.length;++a)if(e.FileIndex[a]==n){e.FileIndex[a].name=i(t);e.FullPaths[a]=t;return true}return false}function De(e){I(e,true)}e.find=A;e.read=y;e.parse=h;e.write=P;e.writeFile=z;e.utils={cfb_new:Re,cfb_add:ze,cfb_del:Le,cfb_mov:Pe,cfb_gc:De,ReadShift:ReadShift,CheckField:CheckField,prep_blob:prep_blob,bconcat:bconcat,use_zlib:M,_deflateRaw:ue,_inflateRaw:be,consts:R};return e}();if(typeof require!=="undefined"&&typeof module!=="undefined"&&typeof DO_NOT_EXPORT_CFB==="undefined"){module.exports=CFB}
+
+</script>
+<script>
+/* Reads dropped .eml and .msg files into the email box */
+(function(){
+const $ = id => document.getElementById(id);
+
+function decodeBytes(bytes, charset){
+  try { return new TextDecoder((charset||"utf-8").toLowerCase().replace(/^"|"$/g,"")).decode(bytes); }
+  catch(e){ return new TextDecoder("utf-8").decode(bytes); }
+}
+function latin1Bytes(str){ const b = new Uint8Array(str.length); for (let i=0;i<str.length;i++) b[i] = str.charCodeAt(i) & 255; return b; }
+function b64Bytes(str){ const bin = atob(str.replace(/[^A-Za-z0-9+/=]/g,"")); return latin1Bytes(bin); }
+function qpBytes(str){
+  const s = str.replace(/=\r?\n/g,""); const out = [];
+  for (let i=0;i<s.length;i++){
+    if (s[i]==="=" && /^[0-9A-F]{2}$/i.test(s.substr(i+1,2))){ out.push(parseInt(s.substr(i+1,2),16)); i+=2; }
+    else out.push(s.charCodeAt(i) & 255);
+  }
+  return new Uint8Array(out);
+}
+function decodeWords(v){
+  return v.replace(/\?=\s+=\?/g,"?==?").replace(/=\?([^?]+)\?([BbQq])\?([^?]*)\?=/g, (m, cs, enc, txt) => {
+    const bytes = /b/i.test(enc) ? b64Bytes(txt) : qpBytes(txt.replace(/_/g," "));
+    return decodeBytes(bytes, cs);
+  });
+}
+function parseHeaders(block){
+  const h = {}; const lines = block.replace(/\r?\n[ \t]+/g," ").split(/\r?\n/);
+  for (const l of lines){ const i = l.indexOf(":"); if (i>0){ const k = l.slice(0,i).trim().toLowerCase(); if (!(k in h)) h[k] = l.slice(i+1).trim(); } }
+  return h;
+}
+function param(v, name){ const m = (v||"").match(new RegExp(name+'\\s*=\\s*("([^"]*)"|[^;\\s]+)',"i")); return m ? (m[2] !== undefined ? m[2] : m[1]) : ""; }
+function htmlToText(html){
+  const doc = new DOMParser().parseFromString(html.replace(/<br\s*\/?>/gi,"\n").replace(/<\/(p|div|tr|li|h\d)>/gi,"\n"),"text/html");
+  return (doc.body ? doc.body.textContent : "").replace(/\u00a0/g," ").replace(/\n{3,}/g,"\n\n").trim();
+}
+function findPart(raw, want){
+  const sep = raw.search(/\r?\n\r?\n/); if (sep < 0) return null;
+  const head = parseHeaders(raw.slice(0,sep)); const body = raw.slice(sep).replace(/^\r?\n\r?\n/,"");
+  const ct = head["content-type"] || "text/plain";
+  if (/^multipart\//i.test(ct)){
+    const b = param(ct,"boundary"); if (!b) return null;
+    const parts = body.split("--"+b).slice(1).filter(p => !/^--/.test(p));
+    for (const p of parts){ const r = findPart(p.replace(/^\r?\n/,""), want); if (r) return r; }
+    return null;
+  }
+  if (!new RegExp("^"+want,"i").test(ct)) return null;
+  if (/attachment/i.test(head["content-disposition"]||"")) return null;
+  const enc = (head["content-transfer-encoding"]||"").toLowerCase();
+  const bytes = enc === "base64" ? b64Bytes(body) : enc === "quoted-printable" ? qpBytes(body) : latin1Bytes(body);
+  return decodeBytes(bytes, param(ct,"charset") || "utf-8");
+}
+function readEml(buf){
+  const raw = new TextDecoder("latin1").decode(buf);
+  const sep = raw.search(/\r?\n\r?\n/);
+  const head = parseHeaders(sep > 0 ? raw.slice(0,sep) : raw);
+  let text = findPart(raw, "text/plain");
+  if (!text){ const html = findPart(raw, "text/html"); text = html ? htmlToText(html) : ""; }
+  return {from: decodeWords(head.from||""), subject: decodeWords(head.subject||""), date: head.date||"", body: text};
+}
+function readMsg(buf){
+  const cfb = CFB.read(new Uint8Array(buf), {type:"array"});
+  const get = (id, kind) => {
+    const e = CFB.find(cfb, "__substg1.0_" + id + kind) || CFB.find(cfb, "Root Entry/__substg1.0_" + id + kind);
+    if (!e || !e.content) return "";
+    const bytes = e.content instanceof Uint8Array ? e.content : new Uint8Array(e.content);
+    return kind === "001F" ? new TextDecoder("utf-16le").decode(bytes).replace(/\0+$/,"") : new TextDecoder("windows-1252").decode(bytes).replace(/\0+$/,"");
+  };
+  const prop = id => get(id,"001F") || get(id,"001E");
+  const subject = prop("0037");
+  const name = prop("0C1A") || prop("0042");
+  let email = prop("5D01") || prop("0C1F") || prop("0065");
+  if (!/@/.test(email)) email = prop("5D01") || prop("39FE") || "";
+  let body = prop("1000");
+  if (!body){
+    const e = CFB.find(cfb, "__substg1.0_10130102") || CFB.find(cfb, "Root Entry/__substg1.0_10130102");
+    if (e && e.content) body = htmlToText(new TextDecoder("utf-8").decode(new Uint8Array(e.content)));
+  }
+  return {from: name + (email && /@/.test(email) ? " <" + email + ">" : ""), subject, date: "", body};
+}
+async function loadFile(file){
+  const st = $("status"); st.classList.remove("error");
+  const buf = await file.arrayBuffer();
+  const head = new Uint8Array(buf.slice(0,8));
+  const isMsg = head[0]===0xD0 && head[1]===0xCF && head[2]===0x11 && head[3]===0xE0;
+  let m;
+  try { m = isMsg ? readMsg(buf) : readEml(buf); }
+  catch(e){ st.textContent = "Couldn’t read that file. Save the email as .eml or .msg, or paste the text instead."; st.classList.add("error"); return; }
+  if (!m.body && !m.subject){ st.textContent = "That file didn’t contain an email. Try saving it again, or paste the text instead."; st.classList.add("error"); return; }
+  $("email").value = (m.from ? "From: " + m.from + "\n" : "") + (m.date ? "Sent: " + m.date + "\n" : "") + (m.subject ? "Subject: " + m.subject + "\n" : "") + "\n" + m.body;
+  $("go").click();
+}
+const drop = $("drop");
+["dragenter","dragover"].forEach(t => drop.addEventListener(t, e => {
+  if (e.dataTransfer && [...e.dataTransfer.types].includes("Files")){ e.preventDefault(); drop.classList.add("over"); }
+}));
+["dragleave","drop"].forEach(t => drop.addEventListener(t, () => drop.classList.remove("over")));
+drop.addEventListener("drop", e => {
+  const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+  if (f){ e.preventDefault(); e.stopPropagation(); loadFile(f); }
+});
+window.addEventListener("dragover", e => { if (e.dataTransfer && [...e.dataTransfer.types].includes("Files")) e.preventDefault(); });
+window.addEventListener("drop", e => { if (e.dataTransfer && e.dataTransfer.files.length){ e.preventDefault(); loadFile(e.dataTransfer.files[0]); } });
+$("file").addEventListener("change", e => { const f = e.target.files[0]; if (f) loadFile(f); e.target.value = ""; });
+})();
+</script>
+
+<script>
+/* Outlook add-in: load the open email, and build the install file */
+(function(){
+  const $ = id => document.getElementById(id);
+  const TASKPANE_ID = "6f3b2c1e-8a4d-4e5f-9b7a-2d1c0e9f4a63";
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function loadItem(){
+    const item = Office.context.mailbox && Office.context.mailbox.item;
+    const msg = $("loadedMsg");
+    if (!item){ msg.textContent = "Select an email to load it."; return; }
+    msg.textContent = "Reading the email you have open…";
+    item.body.getAsync(Office.CoercionType.Text, r => {
+      if (r.status !== Office.AsyncResultStatus.Succeeded){ msg.textContent = "Couldn’t read this email. Copy and paste it instead."; return; }
+      const from = item.from ? (item.from.displayName || "") + (item.from.emailAddress ? " <" + item.from.emailAddress + ">" : "") : "";
+      const d = item.dateTimeCreated ? new Date(item.dateTimeCreated) : null;
+      const sent = d && !isNaN(d) ? d.toISOString() : "";
+      const subject = item.subject || "";
+      $("email").value = (from ? "From: " + from + "\n" : "") + (sent ? "Sent: " + sent + "\n" : "") + (subject ? "Subject: " + subject + "\n" : "") + "\n" + (r.value || "");
+      const box = $("copilotBox"); if (box){ box.hidden = true; $("copilotAnswer").value = ""; }
+      msg.textContent = "Loaded: " + (subject || "(no subject)");
+      if ($("initials").value.trim()) $("go").click();
+      else { const st = $("status"); st.textContent = "Add your initials at the top, then click “Write note”."; st.classList.add("error"); }
+    });
+  }
+  function manifest(){
+    const base = location.href.split(/[?#]/)[0].replace(/[^\/]*$/, "");
+    const esc = u => u.replace(/&/g,"&amp;");
+    const pane = esc(base + "taskpane.html"), icon = n => esc(base + "assets/icon-" + n + ".png");
+    const res = `
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="${icon(16)}"/>
+          <bt:Image id="Icon.32x32" DefaultValue="${icon(32)}"/>
+          <bt:Image id="Icon.80x80" DefaultValue="${icon(80)}"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Taskpane.Url" DefaultValue="${pane}"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Una Health"/>
+          <bt:String id="TaskpaneButton.Label" DefaultValue="Supplier note"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Write the OrderWise Contact Manager note for this supplier email."/>
+        </bt:LongStrings>
+      </Resources>`;
+    const host = (pin) => `
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="unaSupplierGroup">
+                  <Label resid="GroupLabel"/>
+                  <Control xsi:type="Button" id="unaSupplierButton">
+                    <Label resid="TaskpaneButton.Label"/>
+                    <Supertip>
+                      <Title resid="TaskpaneButton.Label"/>
+                      <Description resid="TaskpaneButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Taskpane.Url"/>${pin ? "\n                      <SupportsPinning>true</SupportsPinning>" : ""}
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>`;
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+  <Id>${TASKPANE_ID}</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Una Health Ltd</ProviderName>
+  <DefaultLocale>en-GB</DefaultLocale>
+  <DisplayName DefaultValue="Supplier note helper"/>
+  <Description DefaultValue="Turns supplier emails into OrderWise Contact Manager notes, with PO numbers, tracking and next actions."/>
+  <IconUrl DefaultValue="${icon(64)}"/>
+  <HighResolutionIconUrl DefaultValue="${icon(128)}"/>
+  <SupportUrl DefaultValue="${esc(base)}"/>
+  <AppDomains>
+    <AppDomain>https://m365.cloud.microsoft</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="${pane}"/>
+        <RequestedHeight>450</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.3">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>${host(false)}${res}
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.5">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>${host(true)}${res}
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
+`;
+  }
+  window.unaManifest = manifest;
+  const getBtn = $("getManifest");
+  if (getBtn) getBtn.addEventListener("click", () => {
+    const blob = new Blob([manifest()], {type:"application/xml"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "una-supplier-helper-manifest.xml";
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+  function browserMode(){
+    if (location.protocol === "https:") { const i = $("install"); if (i) i.hidden = false; }
+  }
+  if (window.Office && Office.onReady){
+    Office.onReady(info => {
+      if (info && info.host === Office.HostType.Outlook){
+        document.body.classList.add("in-outlook");
+        loadItem();
+        $("reloadItem").addEventListener("click", loadItem);
+        try { Office.context.mailbox.addHandlerAsync(Office.EventType.ItemChanged, loadItem); } catch(e){}
+      } else browserMode();
+    });
+  } else browserMode();
+})();
+</script>
+</body>
+</html>
