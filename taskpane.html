@@ -202,7 +202,7 @@ body.in-outlook .settings input,body.in-outlook .settings #domain{width:120px}
     <p>Download the add-in file, then in Outlook go to Get Add-ins, My add-ins, Custom add-ins, Add from file, and choose it. Your IT team can also give it to everyone from the Microsoft 365 admin centre.</p>
     <button class="primary" id="getManifest" type="button">Download the Outlook add-in file</button>
   </section>
-  <p class="ver" id="ver">Version 2.0</p>
+  <p class="ver" id="ver">Version 2.1</p>
   <div class="help">
     How to use it
     <ol>
@@ -285,17 +285,53 @@ function findDate(text){
 /* ---------- email parsing ---------- */
 const GREETING = /^\s*(hi|hello|dear|morning|good morning|good afternoon|afternoon|hey)\b[^.!?]{0,30}[,!.]?\s*$/i;
 const SIGNOFF = /^\s*(thanks|thank you|many thanks|kind regards|best regards|regards|best wishes|best|cheers|warm regards|thanks again|thanks in advance|speak soon|ta)[\s,!.]*(\w+)?[\s,!.]*$/i;
+const DISCLAIMER = /^\s*(?:this (?:e-?mail|message|communication)\b.*\b(?:confidential|intended|privileged|monitored)|confidential(?:ity)?(?: notice| note)?\s*[:\-]|disclaimer\b|the (?:information|contents?) (?:contained|in this|of this)|registered (?:in england|in scotland|office|company|number)|company (?:no|number|reg)|vat (?:no|number|reg)|if you (?:are not|have received)|please consider the environment|think before you print|caution:? this (?:e-?mail|message) originated|external (?:e-?mail|sender)|\[external\]|this (?:e-?mail|message) has been scanned|any views or opinions)/i;
+const CONTACT = /^\s*(?:(?:t|m|tel|tele|telephone|mob|mobile|phone|ph|fax|f|d|dd|direct|office|switchboard|cell|e|email|e-mail|w|web|website)\s*[:.]\s*\S|\+?\(?\d[\d\s()\-]{8,}\s*$|www\.|https?:\/\/\S+\s*$|[\w.+\-]+@[\w.\-]+\.\w+\s*$)/i;
+const POSTCODE = /\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b/;
+const JOBTITLE = /\b(manager|director|executive|co-?ordinator|officer|assistant|administrator|specialist|representative|supervisor|team lead|head of|sales|purchasing|procurement|logistics|customer (?:service|care|success)|accounts|operations|planner|buyer|account manager|ceo|cfo|coo|founder|partner|engineer|consultant)\b/i;
+const NAME_LINE = /^\s*(?:(?:mr|mrs|ms|miss|dr)\.?\s+)?[A-Z][a-zà-ÿ'’\-]+(?:\s+[A-Z][a-zà-ÿ'’\-]+){0,2}\s*[,.]?\s*$/;
+const NOT_NAMES = /^(thanks|thank|regards|best|cheers|kind|many|hi|hello|dear|morning|afternoon|ok|okay|yes|no|please|sorry|great|perfect|noted|confirmed|order|delivery|shipping|tracking|attached|see|warehouse|sales|purchasing|logistics|accounts|team|customer)$/i;
+function cap(w){ return w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : w; }
+function nameFromLine(l){
+  if (!l || !NAME_LINE.test(l)) return "";
+  const w = l.trim().replace(/^(?:mr|mrs|ms|miss|dr)\.?\s+/i,"").split(/\s+/)[0].replace(/[,.]$/,"");
+  return NOT_NAMES.test(w) ? "" : cap(w);
+}
+function looksLikeSignature(lines, from){
+  let hits = 0;
+  for (let k = from; k < Math.min(lines.length, from + 6); k++){
+    const t = lines[k] || "";
+    if (CONTACT.test(t) || POSTCODE.test(t) || (JOBTITLE.test(t) && t.trim().split(/\s+/).length <= 6)) hits++;
+  }
+  const first = (lines[from] || "").trim() ? lines[from] : (lines[from + 1] || "");
+  return hits >= 2 || (hits >= 1 && (CONTACT.test(first) || (JOBTITLE.test(first) && first.trim().split(/\s+/).length <= 6)));
+}
 function cleanBody(lines){
   const out = [];
-  let substantive = false;
-  for (const l of lines){
+  let substantive = false, signName = "", greetName = "";
+  for (let i = 0; i < lines.length; i++){
+    const l = lines[i].replace(/\[cid:[^\]]*\]|\[image[^\]]*\]|<image\d*\.\w+>|\bimage\d{3}\.(?:png|jpe?g|gif)\b/gi, "");
     if (/^\s*>/.test(l)) continue;
-    if (/^\s*sent from my /i.test(l)) break;
-    if (SIGNOFF.test(l) && substantive) break;
+    if (/^\s*(?:sent from my |get outlook for |sent from outlook)/i.test(l)) break;
+    if (DISCLAIMER.test(l)){ if (substantive) break; else continue; }
+    if (/^\s*--\s*$/.test(l) && substantive) break;
+    if (!substantive && !greetName){
+      const g = l.match(/^\s*(?:hi|hello|dear|morning|good morning|good afternoon|afternoon|hey)\s+([A-Za-zà-ÿ'’\-]+)/i);
+      if (g && !NOT_NAMES.test(g[1]) && !/^(all|team|both|guys|everyone|there|sir|madam)$/i.test(g[1])) greetName = cap(g[1]);
+    }
+    const so = l.match(SIGNOFF);
+    if (so && substantive){
+      if (so[2] && /^[A-Z]/.test(so[2]) && !NOT_NAMES.test(so[2])) signName = cap(so[2]);
+      else for (let k = i + 1; k < Math.min(lines.length, i + 4) && !signName; k++) signName = nameFromLine(lines[k]);
+      break;
+    }
+    // a signature block with no sign-off: a name, then a job title or contact details
+    if (substantive && nameFromLine(l) && looksLikeSignature(lines, i + 1)){ signName = nameFromLine(l); break; }
+    if (substantive && (CONTACT.test(l) || POSTCODE.test(l)) && looksLikeSignature(lines, i)) break;
     if (l.trim() && !GREETING.test(l) && !SIGNOFF.test(l) && l.trim().length > 12) substantive = true;
     out.push(l);
   }
-  return out.join("\n").replace(/\n{3,}/g,"\n\n").trim();
+  return {body: out.join("\n").replace(/[ \t]+$/gm,"").replace(/\n{3,}/g,"\n\n").trim(), signName, greetName};
 }
 /* Splits a pasted email or thread into messages, newest first */
 function splitThread(raw){
@@ -325,7 +361,7 @@ function splitThread(raw){
     cur.lines.push(l);
   }
   msgs.push(cur);
-  const out = msgs.map(x => ({from:x.from, subject:x.subject, sent:x.sent || "", body: cleanBody(x.lines)})).filter(x => x.body || x.subject);
+  const out = msgs.map(x => { const c = cleanBody(x.lines); return {from:x.from, subject:x.subject, sent:x.sent || "", body: c.body, signName: c.signName, greetName: c.greetName}; }).filter(x => x.body || x.subject);
   return out.length ? out : [{from:"", subject:"", body: raw.trim()}];
 }
 function isOurs(from, ourDomain){
@@ -620,6 +656,8 @@ function sentencesFor(po, latest){
 }
 
 function buildNote(item, initials, multi){
+  const um = (ctx.msgs || [])[item.used || 0] || {};
+  const sup = !um.ours ? personName(um) : "";
   const today = fmt(new Date());
   const head = "(" + initials + ") " + today + (multi ? " (PO " + item.po + ")" : "") + " ";
   let line;
@@ -629,11 +667,11 @@ function buildNote(item, initials, multi){
     case "partial":   line = "Partial shipment sent" + (item.carrier ? " via " + item.carrier : "") + ", balance to follow"; break;
     case "delayed":   line = "Delay advised" + (item.date ? ", new ETA " + fmt(item.date) : ""); break;
     case "eta":       line = (item.confirmed ? "Order confirmation received, ETA " : "ETA advised as ") + (item.date ? fmt(item.date) : "TBC"); break;
-    case "update":    line = "Supplier checking with production, will update"; break;
+    case "update":    line = (sup || "Supplier") + " checking with production, will update"; break;
     case "confirmed": line = "Order confirmation received"; break;
-    case "delivered": line = "Supplier advised goods delivered"; break;
+    case "delivered": line = (sup || "Supplier") + " advised goods delivered"; break;
     case "chased":    line = nextActionFor(item) === NEXT.conf ? "Chased for order confirmation" : "Chased for ETA"; break;
-    case "ready":     line = "Supplier advised goods ready for dispatch" + (item.date ? ", due " + fmt(item.date) : ""); break;
+    case "ready":     line = (sup || "Supplier") + " advised goods ready for dispatch" + (item.date ? ", due " + fmt(item.date) : ""); break;
     case "placed":    line = "PO sent to supplier"; break;
     default:          line = (item.expiries && item.expiries.length) ? "Batch and expiry details received" : "Update received from supplier";
   }
@@ -657,22 +695,33 @@ function buildNote(item, initials, multi){
   return note;
 }
 /* ---------- clean summaries ---------- */
-function firstName(m){
-  const n = (m.from || "").replace(/<.*?>/,"").replace(/["']/g,"").replace(/,.*$/,"").trim();
-  if (n && !/@/.test(n)) return n.split(/\s+/)[0];
-  return m.ours ? "We" : (ctx.supplier || "Supplier");
+function personName(m){
+  const n = (m.from || "").replace(/<.*?>/,"").replace(/["']/g,"").trim();
+  if (n && !/@/.test(n)){
+    const parts = n.includes(",") ? n.split(",").map(x => x.trim()).reverse().join(" ").split(/\s+/) : n.split(/\s+/);
+    const w = parts.find(x => !/^(mr|mrs|ms|miss|dr)\.?$/i.test(x));
+    if (w && !NOT_NAMES.test(w)) return cap(w);
+  }
+  if (m.signName) return m.signName;
+  const local = ((m.from || "").match(/([\w.\-]+)@/) || [])[1] || "";
+  const lp = local.split(/[._\-]/);
+  if (lp.length > 1 && lp[0].length > 1 && /^[a-z]+$/i.test(lp[0]) && !NOT_NAMES.test(lp[0]) && !/^(info|sales|orders|accounts|noreply|no|admin|enquiries|support|customerservice|purchasing|logistics|warehouse|office)$/i.test(lp[0])) return cap(lp[0]);
+  return "";
 }
+function firstName(m){ return personName(m) || (m.ours ? "We" : (ctx.supplier || "Supplier")); }
+function recipientOf(m){ return m.greetName || ""; }
 function tidy(t){
   return t.replace(/https?:\/\/\S+/g,"").replace(/\s+/g," ").replace(/\s+([.,;:?!])/g,"$1").replace(/^[,;:\-–\s]+|[,;:\-–\s]+$/g,"").trim();
 }
-function cleanAsk(sentence){
+function cleanAsk(sentence, who){
+  who = who || "us";
   let t = tidy(sentence).replace(/\?+$/,"");
   t = t.replace(/^(?:hi|hello|dear)\b[^,]*,\s*/i,"").replace(/^(?:and|also|so|but)\s+/i,"");
   t = t.replace(/\b(?:kindly|please|if possible|at your earliest convenience|asap)\b,?\s*/gi,"").replace(/\s{2,}/g," ").trim();
   let m;
-  if ((m = t.match(/^(?:can|could|would|will)\s+(?:you|u)\s+(?:please\s+)?(.+)$/i))) return "asks us to " + m[1];
-  if ((m = t.match(/^(?:we|i)\s+(?:would\s+)?(?:need|require)\s+(?:you\s+to\s+)?(.+)$/i))) return "needs us to " + m[1];
-  if ((m = t.match(/^(?:let (?:us|me) know|advise|confirm|send|provide|check)\b(.*)$/i))) return "asks us to " + t.charAt(0).toLowerCase() + t.slice(1);
+  if ((m = t.match(/^(?:can|could|would|will)\s+(?:you|u)\s+(?:please\s+)?(.+)$/i))) return "asks " + who + " to " + m[1];
+  if ((m = t.match(/^(?:we|i)\s+(?:would\s+)?(?:need|require)\s+(?:you\s+to\s+)?(.+)$/i))) return "needs " + who + " to " + m[1];
+  if ((m = t.match(/^(?:let (?:us|me) know|advise|confirm|send|provide|check)\b(.*)$/i))) return "asks " + who + " to " + t.charAt(0).toLowerCase() + t.slice(1);
   if ((m = t.match(/^(?:is|are|do|does|did|has|have|when|what|which|where)\b/i))) return "asks: " + t.charAt(0).toLowerCase() + t.slice(1) + "?";
   return "asks: " + t.charAt(0).toLowerCase() + t.slice(1);
 }
@@ -688,7 +737,7 @@ function extrasFor(text, ours, opts){
   if (reason) out.push("due to " + tidy(reason[1]));
   if (!ours){
     const ask = sents.find(x => /\?\s*$/.test(x) || /\b(?:can|could|would) you\b|\bplease (?:confirm|advise|send|let us know|check|provide|update)\b|\blet (?:us|me) know\b|\bwe (?:need|require) you\b/i.test(x));
-    if (ask && !FLUFF.test(ask)) out.push(cleanAsk(ask));
+    if (ask && !FLUFF.test(ask)) out.push(cleanAsk(ask, opts.recipient));
   } else {
     const need = (text || "").match(/\b(?:need|needed|require|required)\s+(?:it|them|this|these|the goods|delivery)?\s*(?:by|before)\s+([^.,;!?\n]{3,30})/i);
     if (need){ const d = findDate(need[1]); out.push("needed by " + (d ? fmt(d) : tidy(need[1]))); }
@@ -706,12 +755,12 @@ function extrasFor(text, ours, opts){
 }
 function noteSummary(item){
   const m = (ctx.msgs || [])[item.used || 0] || {};
-  const extras = extrasFor(item.scope || "", m.ours, {hasAttachLines: (item.trackings || []).some(t => t.source) || (item.attLines || []).length > 0});
+  const extras = extrasFor(item.scope || "", m.ours, {recipient: recipientOf(m), hasAttachLines: (item.trackings || []).some(t => t.source) || (item.attLines || []).length > 0});
   if (!extras.length) return "";
   let text = extras.join("; ");
   text = text.charAt(0).toUpperCase() + text.slice(1);
   if (!/[.?!]$/.test(text)) text += ".";
-  return (m.ours ? "We wrote" : firstName(m)) + ": " + text;
+  return (personName(m) || (m.ours ? "We wrote" : firstName(m))) + ": " + text;
 }
 function nextDateFor(item){
   const today = startOfDay(new Date());
@@ -784,19 +833,19 @@ function messageLine(m, pos){
   const known = [...new Set([...pos, ...findPOs(m.subject || "", m.body)])];
   const inMsg = known.filter(p => new RegExp("\\b" + p + "\\b").test(m.body));
   if (inMsg.length > 1){
-    const who = m.ours ? "We" : firstName(m);
+    const who = firstName(m);
     const parts = inMsg.map(p => {
       const sc = sentencesFor(p, m.body) || m.body;
       const t = classify(sc, m.ours);
       return p + " " + (SHORT[t] ? SHORT[t](findCarrier(sc), findDate(sc)) : "mentioned");
     });
-    const extras = extrasFor(m.body, m.ours);
+    const extras = extrasFor(m.body, m.ours, {recipient: recipientOf(m)});
     const verbs = [...new Set(parts.map(x => x.replace(/^\S+\s/,"")))];
     if (verbs.length === 1) return who + ": " + verbs[0] + " (" + inMsg.join(", ") + ")" + (extras.length ? "; " + extras.join("; ") : "") + ".";
     return who + ": " + parts.join("; ") + (extras.length ? "; " + extras.join("; ") : "") + ".";
   }
   const t = classify(m.body, m.ours);
-  const who = m.ours ? "We" : firstName(m);
+  const who = firstName(m);
   let phrase;
   if (PHRASE[t]) phrase = PHRASE[t](findCarrier(m.body), findDate(stripExpiries(m.body)));
   else if (extractExpiries(m.body).length) phrase = "sent batch and expiry details";
@@ -804,7 +853,7 @@ function messageLine(m, pos){
     const pts = summariseMessage(m.body, pos);
     phrase = pts.length ? "wrote: " + tidy(pts[0]).replace(/[.]$/,"") : "";
   }
-  let extras = extrasFor(m.body, m.ours);
+  let extras = extrasFor(m.body, m.ours, {recipient: recipientOf(m)});
   const ex = extractExpiries(m.body);
   if (ex.length) extras.unshift("expiry " + ex.slice(0,3).map(x => (x.lot ? x.lot + " " : "") + x.exp).join(", ") + (ex.length > 3 ? " +" + (ex.length - 3) : ""));
   if (!PHRASE[t] && extras.some(x => /^asks/.test(x))) phrase = "";
@@ -1114,12 +1163,12 @@ Today: ${today} (UK dates). Initials: ${initials}.${domain ? " Emails from " + d
 Reply with only this, nothing before it:
 (${initials}) ${today} <short update, e.g. Order confirmation received / Shipped via DHL / Chased for ETA / ETA advised as DD/MM/YYYY / Query raised with supplier>
 Expiry: Lot <lot> MM/YYYY, Lot <lot> MM/YYYY   (only if batch/lot expiry dates are listed; flag in Check anything expiring within ${SHORT_DATED_MONTHS} months)
-<CARRIER>: <tracking number>   (one line per tracking number, only if any${atts.length ? "; add (from <file name>) if it came from an attachment" : ""})${withSummary ? "\n<sender first name>: <only useful extras not in the first line: quantities, what they ask us to do, delay reasons, documents attached; leave this line out if none>" : ""}
+<CARRIER>: <tracking number>   (one line per tracking number, only if any${atts.length ? "; add (from <file name>) if it came from an attachment" : ""})${withSummary ? "\n<sender’s first name>: <only useful extras not in the first line: quantities, what they ask us to do, delay reasons, documents attached; leave this line out if none>" : ""}
 Next action: <CHASE FOR ORDER CONFIRMATION | CHASE FOR SHIPPING DATE | TRACK PARCEL | ASSIGN TO WAREHOUSE | PENDING RESOLUTION>
 Next action by: DD/MM/YYYY   (day after any ETA or ready date; else +1 working day for TRACK PARCEL, +2 for chasing, +5 after confirmation)
 Check: <anything to double-check, or None>
 
-Use the latest message with real information. Several POs: one block each, (PO 12345) after the date, --- between blocks.
+Ignore email signatures, job titles, contact details and disclaimers. Refer to people by their first name, never “the supplier”, “we” or an email address. Use the latest message with real information. Several POs: one block each, (PO 12345) after the date, --- between blocks.
 
 Email:
 """
